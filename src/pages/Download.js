@@ -47,14 +47,14 @@ const FileUploadForm = () => {
         <h4 class="text-success text-center">VQA Input Images</h4>
         <ul class="mt-5">
           <li class="my-4">
-            <Link class="text-success" to="/train_images.zip" target="_blank" download>Training Images: 13966 images</Link>
+            <Link class="text-success" to="https://storage.cloud.google.com/cartoon_img/train_images.zip?authuser=1" target="_blank" download>Training Images: 13966 images</Link>
           </li>
           <li class="my-4">
-            <Link class="text-success" to="/val_images.zip" target="_blank" download>Validation Images: 3491 images</Link>
+            <Link class="text-success" to="https://storage.cloud.google.com/cartoon_img/val_images.zip?authuser=1" target="_blank" download>Validation Images: 3491 images</Link>
 
           </li>
           <li>
-            <Link class="text-success" to="/val_images.zip" target="_blank" download>Testing Images: 5820 images</Link>
+            <Link class="text-success" to="https://storage.cloud.google.com/cartoon_img/test_images.zip?authuser=1" target="_blank" download>Testing Images: 5820 images</Link>
 
           </li>
         </ul>
