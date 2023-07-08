@@ -42,6 +42,7 @@ const Home = () => {
         </div>
       </div>
       <div class="col-2"></div>
+      <div class="row" style={{"height":"500px"}}></div>
     </div>
   )
 };
