@@ -272,20 +272,20 @@ const Example = () => {
 
           {loading ? (
             <>
-              <div class="row" style={{height:"200px"}}>
+              <div class="row" style={{ height: "200px" }}>
 
               </div>
-             <div style={{ "display": "flex", "justify-content": "center" }}>
-             <ClipLoader
-                            color="#36d7b7"
-                            loading={loading}
-                            size={400}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                        />
+              <div style={{ "display": "flex", "justify-content": "center" }}>
+                <ClipLoader
+                  color="#36d7b7"
+                  loading={loading}
+                  size={400}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                />
 
-             </div>
-            
+              </div>
+
             </>
           ) : (
             <>
@@ -329,23 +329,23 @@ const Example = () => {
                       }}
                       style={resizeStyle}
                     >
-                        <ResponsiveContainer width={"100%"} height={"100%"}>
-                          <PieChart >
-                            <Pie
-                              data={summary.categories}
-                              dataKey="value"
-                              nameKey="name"
-                              outerRadius="100%"
-                              labelLine={false}
-                              label={renderPieCustomizedLabel}
-                            >
-                              {summary.categories.map((entry, index) => (
-                                <Cell key={index} />
-                              ))}
-                            </Pie>
-                            <Legend />
-                          </PieChart>
-                        </ResponsiveContainer>
+                      <ResponsiveContainer width={"100%"} height={"100%"}>
+                        <PieChart >
+                          <Pie
+                            data={summary.categories}
+                            dataKey="value"
+                            nameKey="name"
+                            outerRadius="100%"
+                            labelLine={false}
+                            label={renderPieCustomizedLabel}
+                          >
+                            {summary.categories.map((entry, index) => (
+                              <Cell key={index} />
+                            ))}
+                          </Pie>
+                          <Legend />
+                        </PieChart>
+                      </ResponsiveContainer>
                     </Resizable>
 
                   </div>
@@ -357,7 +357,8 @@ const Example = () => {
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success">The Number of Workers with The Same Answer on The {data_type} set</h4>
                 <div >
-                <Resizable
+                  <div style={{ "display": "flex", "justify-content": "center" }}>
+                    <Resizable
                       defaultSize={{
                         width: 1300,
                         height: 600
@@ -365,26 +366,26 @@ const Example = () => {
                       style={resizeStyle}
                     >
                       <ResponsiveContainer height={"100%"} width={"100%"}>
-                    <LineChart data={summary.cumulative_category}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      
-                      <YAxis label={{ value: 'Number of Responses', offset:-1, angle: -90, position: 'insideLeft' }} />
-                      <Tooltip />
-                      <Legend />
-                      <Line type="monotone" dataKey="incorrect & partially incorrect" strokeWidth={4} stroke="#B03A2E" />
-                      <Line type="monotone" dataKey="incorrect" strokeWidth={2} stroke="#E74C3C" />
-                      <Line type="monotone" dataKey="partially incorrect" strokeWidth={2} stroke="#F39C12" />
-                      <Line type="monotone" dataKey="ambiguous" strokeWidth={2} stroke="#512E5F" />
-                      <Line type="monotone" dataKey="partially correct" strokeWidth={2} stroke="#82E0AA" />
-                      <Line type="monotone" dataKey="correct" strokeWidth={2} stroke="#28B463" />
-                      <Line type="monotone" dataKey="correct & partially correct" strokeWidth={4} stroke="#0E6251" />
+                        <LineChart data={summary.cumulative_category}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="name" />
 
-                    </LineChart>
-                  </ResponsiveContainer>
+                          <YAxis label={{ value: 'Number of Responses', offset: -1, angle: -90, position: 'insideLeft' }} />
+                          <Tooltip />
+                          <Legend />
+                          <Line type="monotone" dataKey="incorrect & partially incorrect" strokeWidth={4} stroke="#B03A2E" />
+                          <Line type="monotone" dataKey="incorrect" strokeWidth={2} stroke="#E74C3C" />
+                          <Line type="monotone" dataKey="partially incorrect" strokeWidth={2} stroke="#F39C12" />
+                          <Line type="monotone" dataKey="ambiguous" strokeWidth={2} stroke="#512E5F" />
+                          <Line type="monotone" dataKey="partially correct" strokeWidth={2} stroke="#82E0AA" />
+                          <Line type="monotone" dataKey="correct" strokeWidth={2} stroke="#28B463" />
+                          <Line type="monotone" dataKey="correct & partially correct" strokeWidth={4} stroke="#0E6251" />
+
+                        </LineChart>
+                      </ResponsiveContainer>
 
                     </Resizable>
-                  
+                  </div>
                 </div>
                 <div class="text-center">
                   <h6 class="text-center mt-3 mb-5 text-success">Figure 2: Cumulative Chart of The Number of Worker with The Same Answers on The {data_type} set</h6>
@@ -426,86 +427,91 @@ const Example = () => {
                     <h6 class="text-center mt-3 text-success mb-5">Table 2: Percentage of First Words of Questions on The {data_type} set</h6>
                   </div>
                   <div>
-                  <Resizable
-                      defaultSize={{
-                        width: 1300,
-                        height: 1300
-                      }}
-                      style={resizeStyle}
-                    >
-                  <ResponsiveContainer height={"100%"} width={"100%"}>
-                    <PieChart>
-                      <Pie
-                        data={summary.nest_question}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        
-                        innerRadius={"10%"}
-                        outerRadius={"28%"}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-
-                      >
-                      </Pie>
-                      <Pie
-                        data={summary.nest_question.flatMap((entry) => entry.children)}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={"28%"}
-                        outerRadius={"46%"}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                      >
-                      </Pie>
-                      <Pie
-                        data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children)}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={"46%"}
-                        outerRadius={"64%"}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-
+                    <div style={{ "display": "flex", "justify-content": "center" }}>
+                      <Resizable
+                        defaultSize={{
+                          width: 1300,
+                          height: 1300
+                        }}
+                        style={resizeStyle}
                       >
 
+                        <ResponsiveContainer height={"100%"} width={"100%"}>
+                          <PieChart>
+                            <Pie
+                              data={summary.nest_question}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
 
-                      </Pie>
-                      <Pie
-                        data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children).flatMap((entry3) => entry3.children)}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={"64%"}
-                        outerRadius={"82%"}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
+                              innerRadius={"10%"}
+                              outerRadius={"28%"}
+                              labelLine={false}
+                              label={renderCustomizedLabel}
 
-                      >
-                      </Pie>
-                      <Pie
-                        data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children).flatMap((entry3) => entry3.children).flatMap((entry4) => entry4.children)}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={"82%"}
-                        outerRadius={"100%"}
-                        labelLine={false}
-                        label={renderCustomizedLabel}
+                            >
+                            </Pie>
+                            <Pie
+                              data={summary.nest_question.flatMap((entry) => entry.children)}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={"28%"}
+                              outerRadius={"46%"}
+                              labelLine={false}
+                              label={renderCustomizedLabel}
+                            >
+                            </Pie>
+                            <Pie
+                              data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children)}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={"46%"}
+                              outerRadius={"64%"}
+                              labelLine={false}
+                              label={renderCustomizedLabel}
 
-                      >
-                      </Pie>
+                            >
 
-                    </PieChart>
-                    </ResponsiveContainer>
-                    </Resizable>
+
+                            </Pie>
+                            <Pie
+                              data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children).flatMap((entry3) => entry3.children)}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={"64%"}
+                              outerRadius={"82%"}
+                              labelLine={false}
+                              label={renderCustomizedLabel}
+
+                            >
+                            </Pie>
+                            <Pie
+                              data={summary.nest_question.flatMap((entry1) => entry1.children).flatMap((entry2) => entry2.children).flatMap((entry3) => entry3.children).flatMap((entry4) => entry4.children)}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={"82%"}
+                              outerRadius={"100%"}
+                              labelLine={false}
+                              label={renderCustomizedLabel}
+
+                            >
+                            </Pie>
+
+                          </PieChart>
+                        </ResponsiveContainer>
+
+                      </Resizable>
+                    </div>
+
                   </div>
                   <h6 class="text-center text-success mt-3 mb-5">Figure 3: Distribution of Questions by Their First Five Words on The {data_type} set</h6>
                 </div>
@@ -513,6 +519,7 @@ const Example = () => {
 
               {/*  Percentage of Topic   */}
               <div class="row my-4 border-bottom border-success">
+
                 <h4 class="text-success">Percentage of Question Topics on The {data_type} set</h4>
                 {/* TABLE  */}
                 <div class="col-4 ps-5">
@@ -542,30 +549,30 @@ const Example = () => {
                 </div>
                 <div class="col-8">
                   <div style={{ "display": "flex", "justify-content": "center" }}>
-                  <Resizable
+                    <Resizable
                       defaultSize={{
                         width: 400,
                         height: 400
                       }}
                       style={resizeStyle}
                     >
-                  <ResponsiveContainer width={"100%"} height={"100%"}>
-                    <PieChart width={800} height={600}>
-                      <Pie
-                        data={topicdata}
-                        dataKey="value"
-                        nameKey="name"
-                        outerRadius={"100%"}
-                        label={renderPieCustomizedLabel}
-                        labelLine={false}
+                      <ResponsiveContainer width={"100%"} height={"100%"}>
+                        <PieChart width={800} height={600}>
+                          <Pie
+                            data={topicdata}
+                            dataKey="value"
+                            nameKey="name"
+                            outerRadius={"100%"}
+                            label={renderPieCustomizedLabel}
+                            labelLine={false}
 
-                      >
-                      </Pie>
+                          >
+                          </Pie>
 
-                      <Legend />
-                    </PieChart>
-                  </ResponsiveContainer>
-                  </Resizable>
+                          <Legend />
+                        </PieChart>
+                      </ResponsiveContainer>
+                    </Resizable>
                   </div>
 
                   <h6 class="text-center mt-3 text-success mb-5">Figure 4: Percentage of Question Topics on The {data_type} set</h6>
@@ -573,105 +580,141 @@ const Example = () => {
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of questions with different word lengths on The {data_type} set</h4>
-                <ResponsiveContainer width={"90%"} height={400}>
-                  <LineChart data={summary.len_ques}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis label={{ value: 'Percentage of Questions', offset:-1, angle: -90, position: 'insideLeft' }}/>
-                    <Tooltip />
-                    <Line type="monotone" dataKey="percent" stroke="#14A44D" strokeWidth={4} />
-                  </LineChart>
-                </ResponsiveContainer>
-
+                <div class="row" style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 1000,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width={"100%"} height={"100%"}>
+                      <LineChart data={summary.len_ques}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis label={{ value: 'Percentage of Questions', offset: -1, angle: -90, position: 'insideLeft' }} />
+                        <Tooltip />
+                        <Line type="monotone" dataKey="percent" stroke="#14A44D" strokeWidth={4} />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 5: Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of 50 Most frequent Answers on The {data_type} set</h4>
-                
-                <ResponsiveContainer width={"90%"} height={400}>
-                  <BarChart data={summary.answer_list}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis  label={{ value: 'Percentage of Answers', offset:-1, angle: -90, position: 'insideLeft' }} />
-                    <Tooltip />
-                    <Bar dataKey="percent" fill="#14A44D" />
-                  </BarChart>
-                </ResponsiveContainer>
-
+                <div style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 1000,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width={"100%"} height="100%">
+                      <BarChart data={summary.answer_list}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'insideLeft' }} />
+                        <Tooltip />
+                        <Bar dataKey="percent" fill="#14A44D" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of 50 Most frequent Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of Answer Types on The {data_type} set</h4>
                 <div class="row" style={{ "display": "flex", "justify-content": "center" }}>
-                <Resizable
-                      defaultSize={{
-                        width: 400,
-                        height: 400
-                      }}
-                      style={resizeStyle}
-                    >
-                <ResponsiveContainer width={"100%"} height={"100%"}>
-                
-                  <PieChart>
-                    <Pie
-                      data={summary.answer_type}
-                      dataKey="value"
-                      nameKey="name"
-                      outerRadius={"100%"}
-                      label={renderPieCustomizedLabel}
-                      labelLine={false}
-                    >
-                    </Pie>
+                  <Resizable
+                    defaultSize={{
+                      width: 400,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width={"100%"} height={"100%"}>
 
-                    <Legend />
-                  </PieChart>
-                  </ResponsiveContainer>
+                      <PieChart>
+                        <Pie
+                          data={summary.answer_type}
+                          dataKey="value"
+                          nameKey="name"
+                          outerRadius={"100%"}
+                          label={renderPieCustomizedLabel}
+                          labelLine={false}
+                        >
+                        </Pie>
+
+                        <Legend />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </Resizable>
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 7: Percentage of Answer Types on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Answers per Question First Words on The {data_type} set</h4>
-                <ResponsiveContainer width="90%" height={800}>
-                  <BarChart data={summary.qa_stack.data} >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis label={{ value: 'Percentage of Answers', angle: -90, position: 'insideLeft' }}/>
+                <div style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 1000,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={summary.qa_stack.data} >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis label={{ value: 'Percentage of Answers', angle: -90, position: 'insideLeft' }} />
 
-                    {summary.qa_stack.keys.map((key, index) => (
-                      <Bar key={index}
-                        dataKey={key}
-                        stackId="a"
-                        fill={COLORS[index]}
-                      >
-                        <LabelList dataKey={key} content={(props) => renderCustomLabel(props, key)} />
-                      </Bar>
-                    ))}
-                  </BarChart>
-                </ResponsiveContainer>
+                        {summary.qa_stack.keys.map((key, index) => (
+                          <Bar key={index}
+                            dataKey={key}
+                            stackId="a"
+                            fill={COLORS[index]}
+                          >
+                            <LabelList dataKey={key} content={(props) => renderCustomLabel(props, key)} />
+                          </Bar>
+                        ))}
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
 
                 <h6 class="text-center mt-3 text-success mb-5">Figure 8: Distribution of Answers per Question First Words on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Question Topic per Question First Words on The {data_type} set</h4>
+                <div style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 1000,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={summary.qt_stack.data} >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis domain={[0, 100]} label={{ value: 'Percentage of Topics', angle: -90, position: 'insideLeft' }} />
 
-                <ResponsiveContainer width="90%" height={800}>
-                  <BarChart data={summary.qt_stack.data} >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis domain={[0, 100]} label={{ value: 'Percentage of Topics', angle: -90, position: 'insideLeft' }}/>
-
-                    {summary.qt_stack.keys.map((key, index) => (
-                      <Bar key={index}
-                        dataKey={key}
-                        stackId="a"
-                        fill={COLORS[index]}
-                      >
-                        <LabelList dataKey={key} content={(props) => renderCustomLabel(props, key)} />
-                      </Bar>
-                    ))}
-                  </BarChart>
-                </ResponsiveContainer>
+                        {summary.qt_stack.keys.map((key, index) => (
+                          <Bar key={index}
+                            dataKey={key}
+                            stackId="a"
+                            fill={COLORS[index]}
+                          >
+                            <LabelList dataKey={key} content={(props) => renderCustomLabel(props, key)} />
+                          </Bar>
+                        ))}
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
 
                 <h6 class="text-center mt-3 text-success mb-5">Figure 9: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
               </div>
@@ -680,8 +723,8 @@ const Example = () => {
                 <div style={{ "display": "flex", "justify-content": "center" }}>
                   <Resizable
                     defaultSize={{
-                      width: 1000,
-                      height: 600
+                      width: 400,
+                      height: 400
                     }}
                     style={resizeStyle}
                   >
@@ -698,8 +741,8 @@ const Example = () => {
                 <div style={{ "display": "flex", "justify-content": "center" }}>
                   <Resizable
                     defaultSize={{
-                      width: 1000,
-                      height: 600
+                      width: 400,
+                      height: 400
                     }}
                     style={resizeStyle}
                   >
@@ -716,8 +759,8 @@ const Example = () => {
                 <div style={{ "display": "flex", "justify-content": "center" }}>
                   <Resizable
                     defaultSize={{
-                      width: 1000,
-                      height: 600
+                      width: 400,
+                      height: 400
                     }}
                     style={resizeStyle}
                   >

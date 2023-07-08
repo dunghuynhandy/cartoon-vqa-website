@@ -327,7 +327,7 @@ def visualize(value_filter, number_filter, subtype):
         if i not in list(len_ques["name"]):
             new_row = pd.DataFrame({'name': [i],'value': [0]})
             len_ques = pd.concat([len_ques, new_row], ignore_index=True)
-    len_ques["percent"] = round(len_ques["value"]/len_ques["value"].sum()*100)
+    len_ques["percent"] = round(len_ques["value"]/len_ques["value"].sum()*100, 2)
     len_ques = len_ques.sort_values("name")
     len_ques = len_ques.to_dict("records")
     question_bag = bag_of_word(list(data['question']))
