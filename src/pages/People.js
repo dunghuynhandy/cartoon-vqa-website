@@ -21,13 +21,13 @@ const Home = () => {
             </div>
             <div class="col-3 text-center">
               <a  target="_blank" href="https://sunilaryal.github.io/"><img  class="rounded-circle " style={{"width":"200px", "height": "200px"}} src="https://sunilaryal.github.io/images/Sunil.png" alt="sunilaryal"/></a> 
-              <h4 class="mt-3">Dr. Sunil Aryal</h4>
+              <h5 class="mt-3">Dr. Sunil Aryal</h5>
               <h6 class="mt-2">Deakin University</h6>
               <h6 class="mt-2">Geelong, VIC Australia</h6>
             </div>
             <div class="col-3 text-center">
               <a  target="_blank" href="https://imranrazzak.github.io/"><img  class="rounded-circle " style={{"width":"200px", "height": "200px"}} src="https://api.research.unsw.edu.au/sites/default/files/images/profile/I.jpg" alt="Imran"/></a> 
-              <h4 class="mt-3">Dr. Imran Razzak</h4>
+              <h5 class="mt-3">Dr. Imran Razzak</h5>
               <h6 class="mt-2">University of New South Wales</h6>
               <h6 class="mt-2">Sydney, Australia</h6>
             </div>
