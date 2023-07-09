@@ -367,4 +367,4 @@ def visualize(value_filter, number_filter, subtype):
     return summary
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=8888)
