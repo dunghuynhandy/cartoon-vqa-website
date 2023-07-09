@@ -369,7 +369,6 @@ const Example = () => {
                         <XAxis dataKey="name" />
                         <YAxis label={{ value: 'Percentage of Assignments', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
                         <Tooltip />
-                        <Bar dataKey="0 worker" fill="#EC7063" />
                         <Bar dataKey="1 worker" fill="#A569BD" />
                         <Bar dataKey="2 workers" fill="#5DADE2" />
                         <Bar dataKey="3 workers" fill="#45B39D" />
