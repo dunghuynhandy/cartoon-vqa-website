@@ -334,10 +334,19 @@ def visualize(value_filter, number_filter, subtype):
     answer_bag = bag_of_word(list(data['answer']))
     question_answer_bag = bag_of_word(list(data['question']) + list(data['answer']))
 
+    worker_mapping = {
+        0: "0 worker",
+        1: "1 worker",
+        2: "2 workers",
+        3: "3 workers"
+    }
 
-    
+    category_workers = []
+    for category in categories:
+        item = data[category].map(worker_mapping).value_counts().to_dict()
+        item["name"] = category
+        category_workers.append(item)
 
-        
     summary = {
         "categories":category_counts.to_dict("records"),
         "cumulative_category": cumulative_results,
@@ -357,7 +366,8 @@ def visualize(value_filter, number_filter, subtype):
         "answer_type": answer_type,
         "question_bag": question_bag,
         "answer_bag": answer_bag,
-        "question_answer_bag": question_answer_bag
+        "question_answer_bag": question_answer_bag,
+        "category_worker": category_workers
 
 
     }

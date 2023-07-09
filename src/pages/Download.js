@@ -16,7 +16,7 @@ const FileUploadForm = () => {
       <div class="row "></div>
       <div class="col-2"></div>
       <div class="col-3 border-end border-1 border-success">
-        <h4 class="text-success text-center">VQA Annotations</h4>
+        <h4 class="text-success text-center">Simpsons-VQA Annotations</h4>
         <ul class="mt-5">
           <li class="my-4">
             <Link class="text-success" to="/v1_Annotation_Train_simpsoon_vqa.json" target="_blank" download>Training Annotations: 78,622 answers</Link>
@@ -27,7 +27,7 @@ const FileUploadForm = () => {
         </ul>
       </div>
       <div class="col-3 border-end border-1 border-success">
-        <h4 class="text-success text-center">VQA Input Questions</h4>
+        <h4 class="text-success text-center">Simpsons-VQA Input Questions</h4>
         <ul class="mt-5">
           <li class="my-4">
             <Link class="text-success" to="/v1_Question_Train_simpsoon_vqa.json" target="_blank" download>Training Questions: 78,622 questions</Link>
@@ -44,7 +44,7 @@ const FileUploadForm = () => {
         </ul>
       </div>
       <div class="col-3 ">
-        <h4 class="text-success text-center">VQA Input Images</h4>
+        <h4 class="text-success text-center">Simpsons-VQA Input Images</h4>
         <ul class="mt-5">
           <li class="my-4">
             <Link class="text-success" to="https://storage.cloud.google.com/cartoon_img/train_images.zip?authuser=1" target="_blank" download>Training Images: 13966 images</Link>

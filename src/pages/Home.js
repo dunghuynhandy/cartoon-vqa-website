@@ -29,7 +29,7 @@ const Home = () => {
             social commentary, The Simpsons has become one of the most iconic and influential television
             shows in history.
           </p>
-          <h4 class="mt-5 text-success">The purpose of <span class="text-danger">Cartoon-VQA </span> dataset:</h4>
+          <h4 class="mt-5 text-success">The purpose of <span class="text-danger">Simpsons-VQA </span> dataset:</h4>
           <p class="mt-4 mx-2" style={{ "text-align": "justify" }}>
             Promoting child development is of utmost importance, and together with our research team, we are
             undertaking a unique project to create a dataset from Simpsons images for the development of a Visual
@@ -49,7 +49,7 @@ const Home = () => {
         <div class="col-4 col-4  mt-5">
           <h4 class="text-success">Dataset Statistic</h4>
           <p class="mt-4 mx-2" style={{ "text-align": "justify" }}>
-            <p>Details on downloading the Cartoon-VQA dataset may be found on the <a href="/download"> download</a> webpage.</p>
+            <p>Details on downloading the Simpsons-VQA dataset may be found on the <a href="/download"> download</a> webpage.</p>
             <p>The dataset consists of:</p>
 
             <ul>

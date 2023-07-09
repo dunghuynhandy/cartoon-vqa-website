@@ -353,6 +353,34 @@ const Example = () => {
                 </div>
               </div>
 
+              <div class="row my-4 border-bottom border-success">
+                <h4 class="text-success mb-5">Number of Assigments acoording to Number of Worker Answers on The {data_type} set</h4>
+                <div style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 1000,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width={"100%"} height="100%">
+                      <BarChart data={summary.category_worker}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis label={{ value: 'Percentage of Assignments', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        <Tooltip />
+                        <Bar dataKey="0 worker" fill="#EC7063" />
+                        <Bar dataKey="1 worker" fill="#A569BD" />
+                        <Bar dataKey="2 workers" fill="#5DADE2" />
+                        <Bar dataKey="3 workers" fill="#45B39D" />
+                        <Legend />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 2: Number of Assigments acoording to Number of Worker Answers on The {data_type} set</h6>
+              </div>
+
               {/*  MTURK QUESTION_ANSWER PAIR RATING   */}
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success">The Number of Workers with The Same Answer on The {data_type} set</h4>
@@ -370,7 +398,7 @@ const Example = () => {
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis dataKey="name" />
 
-                          <YAxis label={{ value: 'Number of Responses', offset: -1, angle: -90, position: 'insideLeft' }} />
+                          <YAxis label={{ value: 'Number of Responses', offset: -1, angle: -90,  position: 'left',style: { textAnchor: 'middle' }}} />
                           <Tooltip />
                           <Legend />
                           <Line type="monotone" dataKey="incorrect & partially incorrect" strokeWidth={4} stroke="#B03A2E" />
@@ -388,7 +416,7 @@ const Example = () => {
                   </div>
                 </div>
                 <div class="text-center">
-                  <h6 class="text-center mt-3 mb-5 text-success">Figure 2: Cumulative Chart of The Number of Worker with The Same Answers on The {data_type} set</h6>
+                  <h6 class="text-center mt-3 mb-5 text-success">Figure 3: Cumulative Chart of The Number of Worker with The Same Answers on The {data_type} set</h6>
                   <h7 ></h7>
                 </div>
               </div>
@@ -513,7 +541,7 @@ const Example = () => {
                     </div>
 
                   </div>
-                  <h6 class="text-center text-success mt-3 mb-5">Figure 3: Distribution of Questions by Their First Five Words on The {data_type} set</h6>
+                  <h6 class="text-center text-success mt-3 mb-5">Figure 4: Distribution of Questions by Their First Five Words on The {data_type} set</h6>
                 </div>
               </div>
 
@@ -547,6 +575,7 @@ const Example = () => {
                   </table>
                   <h6 class="text-center mt-3 text-success mb-5">Table 3: Percentage of Question Topics on The {data_type} set</h6>
                 </div>
+
                 <div class="col-8">
                   <div style={{ "display": "flex", "justify-content": "center" }}>
                     <Resizable
@@ -575,7 +604,7 @@ const Example = () => {
                     </Resizable>
                   </div>
 
-                  <h6 class="text-center mt-3 text-success mb-5">Figure 4: Percentage of Question Topics on The {data_type} set</h6>
+                  <h6 class="text-center mt-3 text-success mb-5">Figure 5: Percentage of Question Topics on The {data_type} set</h6>
                 </div>
               </div>
               <div class="row my-4 border-bottom border-success">
@@ -592,14 +621,14 @@ const Example = () => {
                       <LineChart data={summary.len_ques}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Questions', offset: -1, angle: -90, position: 'insideLeft' }} />
+                        <YAxis label={{ value: 'Percentage of Questions', offset: 0, angle: -90, position: 'left',style: { textAnchor: 'middle' } }} />
                         <Tooltip />
                         <Line type="monotone" dataKey="percent" stroke="#14A44D" strokeWidth={4} />
                       </LineChart>
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 5: Percentage of questions with different word lengths on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of 50 Most frequent Answers on The {data_type} set</h4>
@@ -615,14 +644,14 @@ const Example = () => {
                       <BarChart data={summary.answer_list}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'insideLeft' }} />
+                        <YAxis label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
                         <Tooltip />
                         <Bar dataKey="percent" fill="#14A44D" />
                       </BarChart>
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of 50 Most frequent Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 7: Percentage of 50 Most frequent Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of Answer Types on The {data_type} set</h4>
@@ -652,7 +681,7 @@ const Example = () => {
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 7: Percentage of Answer Types on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 8: Percentage of Answer Types on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Answers per Question First Words on The {data_type} set</h4>
@@ -668,7 +697,7 @@ const Example = () => {
                       <BarChart data={summary.qa_stack.data} >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Answers', angle: -90, position: 'insideLeft' }} />
+                        <YAxis label={{ value: 'Percentage of Answers', angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
 
                         {summary.qa_stack.keys.map((key, index) => (
                           <Bar key={index}
@@ -684,7 +713,7 @@ const Example = () => {
                   </Resizable>
                 </div>
 
-                <h6 class="text-center mt-3 text-success mb-5">Figure 8: Distribution of Answers per Question First Words on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 9: Distribution of Answers per Question First Words on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Question Topic per Question First Words on The {data_type} set</h4>
@@ -700,7 +729,7 @@ const Example = () => {
                       <BarChart data={summary.qt_stack.data} >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 100]} label={{ value: 'Percentage of Topics', angle: -90, position: 'insideLeft' }} />
+                        <YAxis domain={[0, 100]} label={{ value: 'Percentage of Topics', angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
 
                         {summary.qt_stack.keys.map((key, index) => (
                           <Bar key={index}
@@ -716,7 +745,7 @@ const Example = () => {
                   </Resizable>
                 </div>
 
-                <h6 class="text-center mt-3 text-success mb-5">Figure 9: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 10: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Questions on The {data_type} set</h4>
@@ -734,7 +763,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 10: Word Clouds of Questions on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 11: Word Clouds of Questions on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Answers on The {data_type} set</h4>
@@ -752,7 +781,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 11: Word Clouds of Question and Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 12: Word Clouds of Question and Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Question and Answers on The {data_type} set</h4>
@@ -770,7 +799,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 12: Word Clouds of Question and Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 13: Word Clouds of Question and Answers on The {data_type} set</h6>
               </div>
 
             </>

@@ -11,9 +11,10 @@ const Layout = () => {
   return (
     <>
       <div class="row p-1" style={{"background-color":"#1E8449"}}>
-        <div class="col-4 px-5"> <img src={logo}  alt="logo" style={{width:"100%"}} /></div>
-        <div class="col-5 px-5"></div>
-        <div class="col-3 px-5 mt-3"> <img src={deakin_logo}  alt="logo" style={{width:"100%"}} /></div>
+      <div class="col-1 px-5"></div>
+        <div class="col-4 px-5"> <img src={logo}  alt="logo" style={{width:"100%", height:"100%"}} /></div>
+        <div class="col-4 px-5"></div>
+        <div class="col-3 px-5 mt-4"> <img src={deakin_logo}  alt="logo" style={{width:"60%"}} /></div>
       
       </div>
       <div class="row" >
