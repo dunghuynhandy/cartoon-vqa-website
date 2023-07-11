@@ -95,17 +95,17 @@ const Example = () => {
           <div className='image-grid'>
             {examples.map(image => (
               <div class="col-4">
-                <div class="card m-2" style={{ height: "500px" }}>
+                <div class="card m-2 border-success d-flex align-items-stretch">
                   <img class="m-1" src={image.img_path} style={{ height: "250px", "border-radius": "6px" }} />
                   <h6 class="m-2" ><span class="text-success">Question:</span> {image.question}</h6>
-                  <h6 class="mx-2 mt-3 pb-3 border-bottom border-2"><span class="text-success">Answer:</span> {image.answer}</h6>
+                  <h6 class="mx-2 mt-3 pb-3 border-bottom border-2 border-success"><span class="text-success">Answer:</span> {image.answer}</h6>
                   <h6 class="mx-2 text-success">Judgements:</h6>
                   <ul class="mx-4">
                       <li><p class="card-text"><h6><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)}</h6> </p></li>
                       <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {convert_result(image.judgements.worker_2)}</h6> </p></li>
                       <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {convert_result(image.judgements.worker_3)}</h6> </p></li>
                     </ul>
-                    <h6 class="mx-2 pb-3 border-bottom border-2"><span class="text-success">Overal Score:</span> {image.overal_score}</h6>
+                    <h6 class="mx-2 pb-3"><span class="text-success">Overal Score:</span> {image.overal_score}</h6>
                 </div>
 
               </div>
