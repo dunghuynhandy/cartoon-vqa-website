@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, make_response, send_file
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -221,7 +222,8 @@ def get_examples(value_filter, number_filter):
     data = data[["img_path", "question", "topic", "answer", "incorrect",
                   "partially incorrect", "ambiguous", "partially correct", 
                   "correct", "correct & partially correct",
-                  "incorrect & partially incorrect"]]
+                  "incorrect & partially incorrect",  "judgements","overal_score"]]
+    data["judgements"] = data["judgements"].apply(lambda x:  json.loads(x))
     data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
     data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
@@ -292,20 +294,20 @@ def visualize(value_filter, number_filter, subtype):
     answer_list["percent"] = round(answer_list["value"]/answer_list["value"].sum()*100, 2)
     answer_list = answer_list.to_dict("records")
 
-    nest_data = data.groupby(['firstword', 'secondword', 'thirdword', 'fourword'])['fifword'].value_counts()
+    nest_data = data.groupby(['first_word', 'secondword', 'thirdword', 'fourword'])['fifword'].value_counts()
     result = nest_pie_data(nest_data)
     result = add_color(result)
 
-    first_word = data["firstword"].value_counts()
+    first_word = data["first_word"].value_counts()
     first_word = first_word.reset_index()
     first_word.columns = ["name", "value"]
     first_word["percent"] = round(first_word["value"]/len(data)*100, 2)
 
-    qa_result = stack_bar_chart(data, 'firstword', "answer")
+    qa_result = stack_bar_chart(data, 'first_word', "answer")
     QAkeys = list(qa_result[0].keys())
     QAkeys.remove("name")
 
-    qt_result = stack_bar_chart(data, 'firstword', "topic")
+    qt_result = stack_bar_chart(data, 'first_word', "topic")
     QTkeys = list(qt_result[0].keys())
     QTkeys.remove("name")
 

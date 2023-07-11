@@ -35,9 +35,18 @@ const Example = () => {
       console.log("Done!")
     })
   };
-
-
-
+  const convert_result = (value) => {
+    if (value == 1) {
+      return "Correct"
+    } else if (value == 0.75) {
+      return "Partially Correct"
+    } else if (value == 0.5) {
+      return "Abiguous"
+    } else if (value == 0.25) {
+      return "Partially Incorrect"
+    } else { return "Incorrect"}
+    
+  }
   return (
     <div class="container min-vh-100 mt-2">
       <div class="row">
@@ -45,13 +54,10 @@ const Example = () => {
         <div class="col-2 my-5"><h1 class="text-success">Examples</h1></div>
       </div>
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2"><h4 class="text-success">Filters</h4></div>
-      </div>
-      <div class="row">
         <div class="col-2">
         </div>
-        <div class="col-2">
+        <div class="col-4"></div>
+        <div class="col-2 d-flex">
           <div class="my-2">
             <select class="form-control text-center" value={value_filter} onChange={(e) => valueChange(e.target.value)} >
               <option value="All">All</option>
@@ -77,7 +83,6 @@ const Example = () => {
             </select>
           </div>
         </div>
-        <div class="col-4 my-2"></div>
         <div class="col-2 my-2">
           <button type="button" class="btn btn-outline-success" onClick={random}>Random</button>
         </div>
@@ -94,11 +99,13 @@ const Example = () => {
                   <img class="m-1" src={image.img_path} style={{ height: "250px", "border-radius": "6px" }} />
                   <h6 class="m-2" ><span class="text-success">Question:</span> {image.question}</h6>
                   <h6 class="mx-2 mt-3 pb-3 border-bottom border-2"><span class="text-success">Answer:</span> {image.answer}</h6>
-                  <h6 class="mx-2 "><span style={{"color": "#B03A2E"}}>Incorrect:</span> {image.incorrect}</h6>
-                  <h6 class="mx-2 "><span style={{"color": "#E74C3C"}}>Partially Incorrect:</span> {image["partially incorrect"]}</h6>
-                  <h6 class="mx-2 "><span style={{"color": "#512E5F"}}>Ambiguous:</span> {image.ambiguous}</h6>
-                  <h6 class="mx-2 "><span style={{"color": "#82E0AA"}}>Partially Correct:</span> {image["partially correct"]}</h6>
-                  <h6 class="mx-2 "><span style={{"color": "#28B463"}}>correct:</span> {image.correct}</h6>
+                  <h6 class="mx-2 text-success">Judgements:</h6>
+                  <ul class="mx-4">
+                      <li><p class="card-text"><h6><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)}</h6> </p></li>
+                      <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {convert_result(image.judgements.worker_2)}</h6> </p></li>
+                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {convert_result(image.judgements.worker_3)}</h6> </p></li>
+                    </ul>
+                    <h6 class="mx-2 pb-3 border-bottom border-2"><span class="text-success">Overal Score:</span> {image.overal_score}</h6>
                 </div>
 
               </div>

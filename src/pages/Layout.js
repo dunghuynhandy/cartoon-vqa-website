@@ -8,6 +8,7 @@ import deakin_logo from '../deakin_logo.png';
 
 
 const Layout = () => {
+
   return (
     <>
       <div class="row p-1" style={{"background-color":"#1E8449"}}>
@@ -17,24 +18,28 @@ const Layout = () => {
         <div class="col-3 px-5 mt-4"> <img src={deakin_logo}  alt="logo" style={{width:"60%"}} /></div>
       
       </div>
-      <div class="row" >
-      <Navbar variant="dark" expand="lg" className="justify-content-center" style={{"background-color":"#145A32"}}>
+      <div class="row " >
+      <div class="col-3  m-0 p-0 border-0" style={{"background-color":"#145A32"}}></div>
+      <div class="col-6  m-0 p-0 border-0">
+      <Navbar variant="dark" expand="lg" class="border-0" style={{"background-color":"#145A32"}}>
         <Container fluid >
           
           <Navbar.Toggle aria-controls="navbar-dark-example" />
           <Navbar.Collapse id="navbar-dark-example">
             <Nav className='m-auto'>
-            <Navbar.Brand href="/" stype={{"width": "100px"}}>Home</Navbar.Brand>
-            <Navbar.Brand href="/download">Download</Navbar.Brand>
-            <Navbar.Brand href="/examples">Examples</Navbar.Brand>
-            <Navbar.Brand href="/visualize">Visualize</Navbar.Brand>
-            <Navbar.Brand href="/people">People</Navbar.Brand>
+            <Navbar.Brand href="/" >Home</Navbar.Brand>
+            <Navbar.Brand href="/download" >Download</Navbar.Brand>
+            <Navbar.Brand href="/examples" >Examples</Navbar.Brand>
+            <Navbar.Brand href="/visualize"  >Visualize</Navbar.Brand>
+            <Navbar.Brand href="/people" >People</Navbar.Brand>
 
               
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </div>
+      <div class="col-3 m-0 p-0 b-0" style={{"background-color":"#145A32"}}></div>
 
       <Outlet />
       </div>
