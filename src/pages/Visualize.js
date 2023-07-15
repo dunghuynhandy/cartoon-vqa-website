@@ -129,7 +129,7 @@ const Example = () => {
         fill="white"
         textAnchor="middle"
         dominantBaseline="central"
-
+        fontFamily="'Times New Roman', Times, serif"
       >
         {`${(percent).toFixed(0)}%`}
       </text>
@@ -158,6 +158,7 @@ const Example = () => {
           transform={`rotate(${180 - midAngle}, ${labelX}, ${labelY})`}
           fontSize={12}
           fontWeight="bold"
+          fontFamily="'Times New Roman', Times, serif"
         >
           {`${name}`}
         </text>
@@ -173,6 +174,8 @@ const Example = () => {
           transform={`rotate(${360 - midAngle}, ${labelX}, ${labelY})`}
           fontSize={12}
           fontWeight="bold"
+          fontFamily="'Times New Roman', Times, serif"
+          
         >
           {`${name}`}
         </text>
@@ -211,7 +214,9 @@ const Example = () => {
     }
     if (value > 0) {
       return (
-        <text key={key} x={labelX} y={labelY} dy={-5} textAnchor={textAnchor} fontSize={fontsize} fontWeight="bold">
+        <text 
+        fontFamily="'Times New Roman', Times, serif"
+        key={key} x={labelX} y={labelY} dy={-5} textAnchor={textAnchor} fontSize={fontsize} fontWeight="bold">
           {key}
         </text>
       );
@@ -338,12 +343,17 @@ const Example = () => {
                             outerRadius="100%"
                             labelLine={false}
                             label={renderPieCustomizedLabel}
+                            
                           >
                             {summary.categories.map((entry, index) => (
                               <Cell key={index} />
                             ))}
                           </Pie>
-                          <Legend />
+                          <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+                              {value}
+                            </span>
+                          )}/>
                         </PieChart>
                       </ResponsiveContainer>
                     </Resizable>
@@ -366,13 +376,19 @@ const Example = () => {
                     <ResponsiveContainer width={"100%"} height="100%">
                       <BarChart data={summary.category_worker}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Assignments', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
+                        <YAxis 
+                        tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                        label={{ fontFamily: "'Times New Roman', Times, serif",value: 'Percentage of Assignments', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
                         <Tooltip />
                         <Bar dataKey="1 worker" fill="#A569BD" />
                         <Bar dataKey="2 workers" fill="#5DADE2" />
                         <Bar dataKey="3 workers" fill="#45B39D" />
-                        <Legend />
+                        <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+                              {value}
+                            </span>
+                          )}/>
                       </BarChart>
                     </ResponsiveContainer>
                   </Resizable>
@@ -395,11 +411,17 @@ const Example = () => {
                       <ResponsiveContainer height={"100%"} width={"100%"}>
                         <LineChart data={summary.cumulative_category}>
                           <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="name" />
+                          <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
 
-                          <YAxis label={{ value: 'Number of Responses', offset: -1, angle: -90,  position: 'left',style: { textAnchor: 'middle' }}} />
+                          <YAxis 
+                          tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                          label={{fontFamily: "'Times New Roman', Times, serif", value: 'Number of Responses', offset: -1, angle: -90,  position: 'left',style: { textAnchor: 'middle' }}} />
                           <Tooltip />
-                          <Legend />
+                          <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+                              {value}
+                            </span>
+                          )}/>
                           <Line type="monotone" dataKey="incorrect & partially incorrect" strokeWidth={4} stroke="#B03A2E" />
                           <Line type="monotone" dataKey="incorrect" strokeWidth={2} stroke="#E74C3C" />
                           <Line type="monotone" dataKey="partially incorrect" strokeWidth={2} stroke="#F39C12" />
@@ -457,8 +479,8 @@ const Example = () => {
                     <div style={{ "display": "flex", "justify-content": "center" }}>
                       <Resizable
                         defaultSize={{
-                          width: 1300,
-                          height: 1300
+                          width: 800,
+                          height: 800
                         }}
                         style={resizeStyle}
                       >
@@ -597,7 +619,11 @@ const Example = () => {
                           >
                           </Pie>
 
-                          <Legend />
+                          <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+                              {value}
+                            </span>
+                          )}/>
                         </PieChart>
                       </ResponsiveContainer>
                     </Resizable>
@@ -619,8 +645,10 @@ const Example = () => {
                     <ResponsiveContainer width={"100%"} height={"100%"}>
                       <LineChart data={summary.len_ques}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Questions', offset: 0, angle: -90, position: 'left',style: { textAnchor: 'middle' } }} />
+                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
+                        <YAxis 
+                        tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                        label={{fontFamily: "'Times New Roman', Times, serif", value: 'Percentage of Questions', offset: 0, angle: -90, position: 'left',style: { textAnchor: 'middle' } }} />
                         <Tooltip />
                         <Line type="monotone" dataKey="percent" stroke="#14A44D" strokeWidth={4} />
                       </LineChart>
@@ -642,8 +670,12 @@ const Example = () => {
                     <ResponsiveContainer width={"100%"} height="100%">
                       <BarChart data={summary.answer_list}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        <XAxis tick={{ fontFamily: "'Times New Roman', Times, serif" }} dataKey="name" />
+                        <YAxis 
+                        tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                        label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'left', 
+                        style: { textAnchor: 'middle' },
+                        fontFamily: "'Times New Roman', Times, serif"}} />
                         <Tooltip />
                         <Bar dataKey="percent" fill="#14A44D" />
                       </BarChart>
@@ -675,7 +707,11 @@ const Example = () => {
                         >
                         </Pie>
 
-                        <Legend />
+                        <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+                              {value}
+                            </span>
+                          )}/>
                       </PieChart>
                     </ResponsiveContainer>
                   </Resizable>
@@ -695,8 +731,11 @@ const Example = () => {
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={summary.qa_stack.data} >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'Percentage of Answers', angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
+                        <YAxis 
+                        tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                        label={{ fontFamily: "'Times New Roman', Times, serif", value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' },
+                        fontFamily: "'Times New Roman', Times, serif",}} />
 
                         {summary.qa_stack.keys.map((key, index) => (
                           <Bar key={index}
@@ -727,8 +766,10 @@ const Example = () => {
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={summary.qt_stack.data} >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis domain={[0, 100]} label={{ value: 'Percentage of Topics', angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
+                        <YAxis 
+                        tick={{ fontFamily: "'Times New Roman', Times, serif" }}
+                        domain={[0, 100]} label={{fontFamily: "'Times New Roman', Times, serif", value: 'Percentage of Topics',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
 
                         {summary.qt_stack.keys.map((key, index) => (
                           <Bar key={index}
