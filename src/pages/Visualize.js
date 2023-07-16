@@ -678,7 +678,7 @@ const Example = () => {
                         }} 
                         dataKey="name" />
                         <YAxis
-                        domain={[0, 23]}
+                        domain={[0, 24]}
                         width={50}
                         tick={{ fontFamily: "'Times New Roman', Times, serif" }}
                         label={{ value: 'Percentage of Answers', offset: -10, angle: -90, position: 'left', 
