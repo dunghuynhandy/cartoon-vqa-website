@@ -646,7 +646,7 @@ const Example = () => {
                     <ResponsiveContainer width={"100%"} height={"100%"}>
                       <LineChart data={summary.len_ques}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }}/>
+                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" }} />
                         <YAxis 
                         tick={{ fontFamily: "'Times New Roman', Times, serif" }}
                         label={{fontFamily: "'Times New Roman', Times, serif", value: 'Percentage of Questions', offset: 0, angle: -90, position: 'left',style: { textAnchor: 'middle' } }} />
@@ -671,10 +671,17 @@ const Example = () => {
                     <ResponsiveContainer width={"100%"} height="100%">
                       <BarChart data={summary.answer_list}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis tick={{ fontFamily: "'Times New Roman', Times, serif" }} dataKey="name" />
-                        <YAxis 
+                        <XAxis height={80} interval={0} angle={-45} 
+                        tick={{ 
+                          fontFamily: "'Times New Roman', Times, serif", 
+                          textAnchor: "end"
+                        }} 
+                        dataKey="name" />
+                        <YAxis
+                        domain={[0, 23]}
+                        width={50}
                         tick={{ fontFamily: "'Times New Roman', Times, serif" }}
-                        label={{ value: 'Percentage of Answers', offset: -1, angle: -90, position: 'left', 
+                        label={{ value: 'Percentage of Answers', offset: -10, angle: -90, position: 'left', 
                         style: { textAnchor: 'middle' },
                         fontFamily: "'Times New Roman', Times, serif"}} />
                         <Tooltip />
