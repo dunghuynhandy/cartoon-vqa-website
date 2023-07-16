@@ -48,9 +48,10 @@ const Example = () => {
   for (let i = 0; i < summary.topics.length; i++) {
     topic_sum += summary.topics[i].value
   }
-  const filteredTopicData = summary.topics.filter((item) => item.value >= 5000);
+  console.log(summary.topics)
+  const filteredTopicData = summary.topics.filter((item) => item.percent >= 5);
   const droppedTopicCounts = summary.topics
-    .filter((item) => item.value < 5000)
+    .filter((item) => item.percent < 5)
     .reduce((sum, item) => sum + item.value, 0);
 
   // Create a new "Other" category

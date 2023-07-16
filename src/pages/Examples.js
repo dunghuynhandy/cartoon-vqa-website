@@ -41,7 +41,7 @@ const Example = () => {
     } else if (value == 0.75) {
       return "Partially Correct"
     } else if (value == 0.5) {
-      return "Abiguous"
+      return "Ambiguous"
     } else if (value == 0.25) {
       return "Partially Incorrect"
     } else { return "Incorrect"}
@@ -49,9 +49,9 @@ const Example = () => {
   }
   return (
     <div class="container min-vh-100 mt-2">
-      <div class="row">
+      <div class="row" style={{ height: "800px",}} >
         <div class="col-2"></div>
-        <div class="col-2 my-5"><h1 class="text-success">Examples</h1></div>
+        <div class="col-2 my-5" ><h1 class="text-success">Examples</h1></div>
       </div>
       <div class="row">
         <div class="col-2">
@@ -89,23 +89,22 @@ const Example = () => {
 
       </div>
       <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-9">
+
+        <div class="col-12">
           <div className='image-grid'>
             {examples.map(image => (
-              <div class="col-4">
+              <div class="col-3">
                 <div class="card m-2 border-success d-flex align-items-stretch">
-                  <img class="m-1" src={image.img_path} style={{ height: "250px", "border-radius": "6px" }} />
-                  <h6 class="m-2" ><span class="text-success">Question:</span> {image.question}</h6>
-                  <h6 class="mx-2 mt-3 pb-3 border-bottom border-2 border-success"><span class="text-success">Answer:</span> {image.answer}</h6>
-                  <h6 class="mx-2 text-success">Judgements:</h6>
-                  <ul class="mx-4">
-                      <li><p class="card-text"><h6><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)}</h6> </p></li>
-                      <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {convert_result(image.judgements.worker_2)}</h6> </p></li>
-                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {convert_result(image.judgements.worker_3)}</h6> </p></li>
+                  <img class="m-1" src={image.img_path} style={{ height: "200px", "border-radius": "6px" }} />
+                  <p class="mx-2 my-0" style={{ height: "40px"}} ><span class="text-success">Question:</span> {image.question}</p>
+                  <p class="mx-2 my-0"><span class="text-success">Answer:</span> {image.answer}</p>
+                  <p class="mx-2 my-0 text-success">Judgements:</p>
+                  <ul class="mx-4 my-0">
+                      <li><p class="card-text"><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)} </p></li>
+                      <li><p class="card-text"><span class="text-success">worker_2:</span> {convert_result(image.judgements.worker_2)} </p></li>
+                      <li><p class="card-text"><span class="text-success">worker_3:</span> {convert_result(image.judgements.worker_3)}</p></li>
                     </ul>
-                    <h6 class="mx-2 pb-3"><span class="text-success">Overal Score:</span> {image.overal_score}</h6>
+                    <p class="mx-2 my-0 pb-1"><span class="text-success">Overal Score:</span> {image.overal_score}</p>
                 </div>
 
               </div>
