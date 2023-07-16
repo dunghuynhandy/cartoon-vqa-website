@@ -279,7 +279,7 @@ def visualize(value_filter, number_filter, subtype):
     topic_count = data["topic"].value_counts()
     topic_count = topic_count.reset_index()
     topic_count.columns = ["name", "value"]
-    topic_count["percent"] = round(topic_count["value"]/topic_count["value"].sum()*100)
+    topic_count["percent"] = round(topic_count["value"]/topic_count["value"].sum()*100, 2)
     topic_count = topic_count.to_dict('records')
     for i in range(len(topic_count)):
         try:

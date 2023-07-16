@@ -35,6 +35,7 @@ const Example = () => {
       console.log("Done!")
     })
   };
+  console.log(examples)
   const convert_result = (value) => {
     if (value == 1) {
       return "Correct"
@@ -98,6 +99,7 @@ const Example = () => {
                   <img class="m-1" src={image.img_path} style={{ height: "200px", "border-radius": "6px" }} />
                   <p class="mx-2 my-0" style={{ height: "40px"}} ><span class="text-success">Question:</span> {image.question}</p>
                   <p class="mx-2 my-0"><span class="text-success">Answer:</span> {image.answer}</p>
+                  <p class="mx-2 my-0"><span class="text-success">Topic:</span> {image.topic}</p>
                   <p class="mx-2 my-0 text-success">Judgements:</p>
                   <ul class="mx-4 my-0">
                       <li><p class="card-text"><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)} </p></li>
