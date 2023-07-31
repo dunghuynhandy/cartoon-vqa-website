@@ -52,7 +52,7 @@ const Example = () => {
     <div class="container min-vh-100 mt-2">
       <div class="row" style={{ height: "800px",}} >
         <div class="col-2"></div>
-        <div class="col-2 my-5" ><h1 class="text-success">Examples</h1></div>
+        <div class="col-2 my-5" ><h1 >Examples</h1></div>
       </div>
       <div class="row">
         <div class="col-2">
@@ -85,28 +85,27 @@ const Example = () => {
           </div>
         </div>
         <div class="col-2 my-2">
-          <button type="button" class="btn btn-outline-success" onClick={random}>Random</button>
+          <button type="button" class="btn btn-outline-dark" onClick={random}>Random</button>
         </div>
 
       </div>
-      <div class="row">
-
+      <div class="row mx-1">
         <div class="col-12">
           <div className='image-grid'>
             {examples.map(image => (
               <div class="col-3">
-                <div class="card m-2 border-success d-flex align-items-stretch">
+                <div class="card m-2 border-dark d-flex align-items-stretch">
                   <img class="m-1" src={image.img_path} style={{ height: "200px", "border-radius": "6px" }} />
-                  <p class="mx-2 my-0" style={{ height: "40px"}} ><span class="text-success">Question:</span> {image.question}</p>
-                  <p class="mx-2 my-0"><span class="text-success">Answer:</span> {image.answer}</p>
-                  <p class="mx-2 my-0"><span class="text-success">Topic:</span> {image.topic}</p>
-                  <p class="mx-2 my-0 text-success">Judgements:</p>
+                  <p class="mx-2 my-0 text-danger" style={{ height: "60px", "font-size": "larger"}} ><span >Question:</span> {image.question}</p>
+                  <p style={{"font-size": "larger"}} class="mx-2 my-0 text-success "><span >Answer:</span> {image.answer}</p>
+                  <p style={{"font-size": "larger"}} class="mx-2 my-0 text-info"><span >Topic:</span> {image.topic}</p>
+                  <p style={{"font-size": "larger"}} class="mx-2 my-0 text-primary">Judgements:</p>
                   <ul class="mx-4 my-0">
-                      <li><p class="card-text"><span class="text-success">worker_1:</span> {convert_result(image.judgements.worker_1)} </p></li>
-                      <li><p class="card-text"><span class="text-success">worker_2:</span> {convert_result(image.judgements.worker_2)} </p></li>
-                      <li><p class="card-text"><span class="text-success">worker_3:</span> {convert_result(image.judgements.worker_3)}</p></li>
+                      <li><p style={{"font-size": "larger"}} class="card-text "><span >worker_1:</span> {convert_result(image.judgements.worker_1)} </p></li>
+                      <li><p style={{"font-size": "larger"}} class="card-text"><span >worker_2:</span> {convert_result(image.judgements.worker_2)} </p></li>
+                      <li><p style={{"font-size": "larger"}} class="card-text"><span >worker_3:</span> {convert_result(image.judgements.worker_3)}</p></li>
                     </ul>
-                    <p class="mx-2 my-0 pb-1"><span class="text-success">Overal Score:</span> {image.overal_score}</p>
+                    <p style={{"font-size": "larger", "color": "#4A235A"}} class="mx-2 my-0 pb-1" ><span >Overal Score:</span> {image.overal_score}</p>
                 </div>
 
               </div>

@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, make_response, send_file
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import json
-
+import base64
 app = Flask(__name__)
 
 def bag_of_word(list_of_words):
@@ -226,9 +226,12 @@ def get_examples(value_filter, number_filter):
     data["judgements"] = data["judgements"].apply(lambda x:  json.loads(x))
     data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
-    data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
+    #data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
     data = data.sample(n=12)
     data = data.to_dict('records')
+    for i in range(len(data)):
+        image_data = open("./train_images/" + data[i]["img_path"], "rb").read()
+        data[i]["img_path"] = "data:image/jpg;base64," + base64.b64encode(image_data).decode()
     return data
 
 @app.route('/visualize/<value_filter>/<number_filter>/<subtype>', methods=['GET', "POST"])
@@ -290,7 +293,7 @@ def visualize(value_filter, number_filter, subtype):
     answer_list = data["answer"].value_counts()
     answer_list = answer_list.reset_index()
     answer_list.columns = ["name", "value"]
-    answer_list = answer_list[:50] 
+    answer_list = answer_list[:30] 
     answer_list["percent"] = round(answer_list["value"]/answer_list["value"].sum()*100, 2)
     answer_list = answer_list.to_dict("records")
 
