@@ -32,7 +32,7 @@ const Example = () => {
     justifyContent: "center",
     border: "solid 1px #9FA6B2",
   };
-
+  const FONTSIZE = '24px'
 
   const RADIAN = Math.PI / 180;
   const COLORS = [
@@ -131,7 +131,7 @@ const Example = () => {
         textAnchor="middle"
         dominantBaseline="central"
         fontFamily="'Times New Roman', Times, serif"
-        fontSize={outerRadius*0.12}
+        fontSize={FONTSIZE}
       >
         {`${(percent).toFixed(0)}%`}
       </text>
@@ -226,7 +226,7 @@ const Example = () => {
     }
 
   };
-  const FONTSIZE = '24px'
+  
 
   return (
     <div class="container min-vh-100 mt-2">
