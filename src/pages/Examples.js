@@ -93,7 +93,7 @@ const Example = () => {
         <div class="col-12">
           <div className='image-grid'>
             {examples.map(image => (
-              <div class="col-3">
+              <div class="col-4">
                 <div class="card m-2 border-dark d-flex align-items-stretch">
                   <img class="m-1" src={image.img_path} style={{ height: "200px", "border-radius": "6px" }} />
                   <p class="mx-2 my-0 text-danger" style={{ height: "60px", "font-size": "larger"}} ><span >Question:</span> {image.question}</p>

@@ -226,7 +226,7 @@ const Example = () => {
     }
 
   };
-  const FONTSIZE = '20px'
+  const FONTSIZE = '24px'
 
   return (
     <div class="container min-vh-100 mt-2">
@@ -383,7 +383,7 @@ const Example = () => {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}/>
                         <YAxis
-                        width={80}
+                        width={100}
                         tick={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE}}
                         label={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE, value: 'Percentage of Assignments', offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
                         <Tooltip />
@@ -422,7 +422,7 @@ const Example = () => {
                           dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" , fontSize: FONTSIZE}}/>
 
                           <YAxis
-                          width={80}
+                          width={100}
                           tick={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}
                           label={{fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE, value: 'Number of Responses', offset: -4, angle: -90,  position: 'left',style: { textAnchor: 'middle' }}} />
                           <Tooltip />
