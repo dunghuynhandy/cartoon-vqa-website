@@ -7,6 +7,7 @@ import { Resizable } from "re-resizable";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import ClipLoader from "react-spinners/ClipLoader";
+import Plot from 'react-plotly.js';
 
 const Example = () => {
   const [summary, setSummary] = useState({ categories: [], topics: [], len_ques: [] });
@@ -16,6 +17,9 @@ const Example = () => {
   const [loading, setLoading] = useState(true);
   const [data_type, setData_type] = useState("Train and Validation");
 
+  const questionLengths = [20, 25, 30, 40, 22, 35, 27, 50];
+
+  
 
 
   useEffect(() => {
@@ -25,6 +29,21 @@ const Example = () => {
       setLoading(false)
     });
   }, []);
+  const data = [
+    {
+      type: 'box',
+      y: summary.ques_len_list,
+      jitter: 0.3,
+      pointpos: -1.8,
+      marker: { color: 'rgba(255, 144, 14, 0.5)' },
+      line: { color: 'rgba(255, 144, 14, 1)' },
+    },
+  ];
+
+  const layout = {
+    title: 'Box Plot of Question Lengths',
+    yaxis: { title: 'Question Length' },
+  };
 
   const resizeStyle = {
     display: "flex",
@@ -227,7 +246,7 @@ const Example = () => {
 
   };
   
-
+  console.log(summary)
   return (
     <div class="container min-vh-100 mt-2">
 
@@ -666,6 +685,12 @@ const Example = () => {
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
+              {/*
+              <div>
+              <h1>My React Boxplot App</h1>
+              <Plot data={data} layout={layout} />
+            </div>
+             */}
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of 50 Most frequent Answers on The {data_type} set</h4>
                 <div style={{ "display": "flex", "justify-content": "center" }}>
