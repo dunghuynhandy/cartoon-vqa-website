@@ -19,9 +19,9 @@ const Layout = () => {
         
       
       </div>
-      <div class="row " >
+      <div class="row">
       <div class="col-3  m-0 p-0 border-0" style={{"background-color":"#145A32"}}></div>
-      <div class="col-6  m-0 p-0 border-0">
+      <div class="col-6  m-0 p-0 border-0 " style={{"background-color":"#145A32"}}>
       <Navbar variant="dark" expand="lg" class="border-0" style={{"background-color":"#145A32"}}>
         <Container fluid >
           
@@ -41,7 +41,8 @@ const Layout = () => {
       </Navbar>
       </div>
       <div class="col-3 m-0 p-0 b-0" style={{"background-color":"#145A32"}}></div>
-
+      </div>
+      <div class="row">
       <Outlet />
       </div>
       <div class="row p-1" style={{"background-color":"#1E8449", "height":"100px"}}>
