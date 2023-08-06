@@ -52,7 +52,7 @@ const Example = () => {
     <div class="container min-vh-100 mt-2">
       <div class="row" >
         <div class="col-2"></div>
-        <div class="col-2 my-5" ><h1 >Examples</h1></div>
+        <div class="col-2 my-5 text-success" ><h1 >Examples</h1></div>
       </div>
       <div class="row">
         <div class="col-2">
