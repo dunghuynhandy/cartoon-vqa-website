@@ -17,7 +17,7 @@ const Example = () => {
   const [loading, setLoading] = useState(true);
   const [data_type, setData_type] = useState("Train and Validation");
 
-  const questionLengths = [20, 25, 30, 40, 22, 35, 27, 50];
+  const FONTSIZE = '24px'
 
   
 
@@ -32,17 +32,34 @@ const Example = () => {
   const data = [
     {
       type: 'box',
+      boxpoints: 'outliers',
       y: summary.ques_len_list,
       jitter: 0.3,
       pointpos: -1.8,
-      marker: { color: 'rgba(255, 144, 14, 0.5)' },
-      line: { color: 'rgba(255, 144, 14, 1)' },
+      marker: { color: '#14A44D',},
+      line: { color: '#14A44D' },
+      showlegend: false,
+      
+      name: '',
+      
     },
   ];
 
   const layout = {
-    title: 'Box Plot of Question Lengths',
-    yaxis: { title: 'Question Length' },
+    yaxis: { title: {
+      text: 'Question Lengths',
+      font: {
+        family: "Book Antiqua, Times, serif", // Specify the font family
+        size: 24, // Adjust the font size as needed
+      },
+      tickfont: {
+        family: "Book Antiqua, Times, serif", // Specify the font family
+        size: 22, // Adjust the font size as needed
+      },
+    }},
+
+    width: 700,
+    height: 700,
   };
 
   const resizeStyle = {
@@ -51,7 +68,7 @@ const Example = () => {
     justifyContent: "center",
     border: "solid 1px #9FA6B2",
   };
-  const FONTSIZE = '24px'
+  
 
   const RADIAN = Math.PI / 180;
   const COLORS = [
@@ -149,7 +166,7 @@ const Example = () => {
         fill="white"
         textAnchor="middle"
         dominantBaseline="central"
-        fontFamily="'Times New Roman', Times, serif"
+        fontFamily="Book Antiqua, Times, serif"
         fontSize={FONTSIZE}
       >
         {`${(percent).toFixed(0)}%`}
@@ -179,7 +196,7 @@ const Example = () => {
           transform={`rotate(${180 - midAngle}, ${labelX}, ${labelY})`}
           fontSize={12}
           fontWeight="bold"
-          fontFamily="'Times New Roman', Times, serif"
+          fontFamily="Book Antiqua, Times, serif"
         >
           {`${name}`}
         </text>
@@ -195,7 +212,7 @@ const Example = () => {
           transform={`rotate(${360 - midAngle}, ${labelX}, ${labelY})`}
           fontSize={12}
           fontWeight="bold"
-          fontFamily="'Times New Roman', Times, serif"
+          fontFamily="Book Antiqua, Times, serif"
           
         >
           {`${name}`}
@@ -237,7 +254,7 @@ const Example = () => {
     if (value > 0) {
       return (
         <text 
-        fontFamily="'Times New Roman', Times, serif"
+        fontFamily="Book Antiqua, Times, serif"
         key={key} x={labelX} y={labelY} dy={-5} textAnchor={textAnchor} fontSize={fontsize} fontWeight="bold">
           {key}
         </text>
@@ -373,7 +390,7 @@ const Example = () => {
                             ))}
                           </Pie>
                           <Legend formatter={(value, entry) => (
-                            <span style={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}>
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}>
                               {value}
                             </span>
                           )}
@@ -398,19 +415,23 @@ const Example = () => {
                     style={resizeStyle}
                   >
                     <ResponsiveContainer width="97%" height="100%">
-                      <BarChart data={summary.category_worker}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}/>
+                      <BarChart data={summary.category_worker} >
+                        <CartesianGrid stroke="#000000"  strokeDasharray="3 3"  />
+                        <XAxis dataKey="name"
+                        tick={{ fontFamily: "Book Antiqua, Times, serif" , fill: "#000000", fontSize: FONTSIZE}}/>
                         <YAxis
                         width={100}
-                        tick={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE}}
-                        label={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE, value: 'Percentage of Assignments', offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        tick={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE}}
+                        label={{ fontFamily: "Book Antiqua, Times, serif",
+                        fontSize: FONTSIZE, 
+                        value: 'Percentage of Assignments', offset: -4, angle: -90, position: 'left',
+                        style: { textAnchor: 'middle', fill: "#000000" }}} />
                         <Tooltip />
                         <Bar dataKey="1 worker" fill="#A569BD" />
                         <Bar dataKey="2 workers" fill="#5DADE2" />
                         <Bar dataKey="3 workers" fill="#45B39D" />
                         <Legend formatter={(value, entry) => (
-                            <span style={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE}}>
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE}}>
                               {value}
                             </span>
                           )}/>
@@ -435,18 +456,18 @@ const Example = () => {
                     >
                       <ResponsiveContainer height={"100%"} width={"95%"}>
                         <LineChart data={summary.cumulative_category}>
-                          <CartesianGrid strokeDasharray="3 3" />
+                          <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
                           
                           <XAxis 
-                          dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif" , fontSize: FONTSIZE}}/>
+                          dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif" , fontSize: FONTSIZE, fill: "#000000" }}/>
 
                           <YAxis
                           width={100}
-                          tick={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}
-                          label={{fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE, value: 'Number of Responses', offset: -4, angle: -90,  position: 'left',style: { textAnchor: 'middle' }}} />
+                          tick={{ fontFamily: "Book Antiqua, Times, serif" , fill: "#000000", fontSize: FONTSIZE}}
+                          label={{fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000", value: 'Number of Responses', offset: -4, angle: -90,  position: 'left',style: { textAnchor: 'middle', fill: "#000000" }}} />
                           <Tooltip />
                           <Legend formatter={(value, entry) => (
-                            <span style={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}>
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}>
                               {value}
                             </span>
                           )}/>
@@ -648,7 +669,7 @@ const Example = () => {
                           </Pie>
 
                           <Legend formatter={(value, entry) => (
-                            <span style={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}>
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif" , fill: "#000000", fontSize: FONTSIZE}}>
                               {value}
                             </span>
                           )}/>
@@ -672,11 +693,11 @@ const Example = () => {
                   >
                     <ResponsiveContainer width={"96%"} height={"100%"}>
                       <LineChart data={summary.len_ques}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE }} />
+                        <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000" }} />
                         <YAxis 
-                        tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE }}
-                        label={{fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE, value: 'Percentage of Questions', offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' } }} />
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill: "#000000" }}
+                        label={{fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000", value: 'Percentage of Questions', offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" } }} />
                         <Tooltip />
                         <Line type="monotone" dataKey="percent" stroke="#14A44D" strokeWidth={4} />
                       </LineChart>
@@ -685,10 +706,16 @@ const Example = () => {
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
+              <div class="row my-4 border-bottom border-success text-center">
+                <div class="" >
+                      <Plot data={data} layout={layout} />
+                </div>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 7: Box Plot of Question Lengths on The {data_type} set</h6>
+              </div>
               {/*
               <div>
               <h1>My React Boxplot App</h1>
-              <Plot data={data} layout={layout} />
+              
             </div>
              */}
               <div class="row my-4 border-bottom border-success">
@@ -703,28 +730,29 @@ const Example = () => {
                   >
                     <ResponsiveContainer width={"95%"} height="100%">
                       <BarChart data={summary.answer_list}>
-                        <CartesianGrid strokeDasharray="3 3" />
+                        <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
                         <XAxis height={80} interval={0} angle={-45} 
                         tick={{ 
+                          fill: "#000000",
                           fontSize: FONTSIZE,
-                          fontFamily: "'Times New Roman', Times, serif", 
+                          fontFamily: "Book Antiqua, Times, serif", 
                           textAnchor: "end"
                         }} 
                         dataKey="name" />
                         <YAxis
                         domain={[0, 24]}
                         width={60}
-                        tick={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE }}
+                        tick={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE }}
                         label={{ value: 'Percentage of Answers', offset: -4, angle: -90, position: 'left', 
-                        style: { textAnchor: 'middle' },
-                        fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE}} />
+                        style: { textAnchor: 'middle', fill: "#000000" },
+                        fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE}} />
                         <Tooltip />
                         <Bar dataKey="percent" fill="#14A44D" />
                       </BarChart>
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 7: Percentage of 50 Most frequent Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 8: Percentage of 50 Most frequent Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of Answer Types on The {data_type} set</h4>
@@ -750,7 +778,7 @@ const Example = () => {
                         </Pie>
 
                         <Legend formatter={(value, entry) => (
-                            <span style={{ fontFamily: "'Times New Roman', Times, serif" ,  fontSize: FONTSIZE}}>
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif" , fill: "#000000", fontSize: FONTSIZE}}>
                               {value}
                             </span>
                           )}/>
@@ -758,7 +786,7 @@ const Example = () => {
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 8: Percentage of Answer Types on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 9: Percentage of Answer Types on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Answers per Question First Words on The {data_type} set</h4>
@@ -772,13 +800,13 @@ const Example = () => {
                   >
                     <ResponsiveContainer width="97%" height="100%">
                       <BarChart data={summary.qa_stack.data} >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}/>
+                        <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}/>
                         <YAxis
                         width={60}
-                        tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}
-                        label={{ fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' },
-                        fontFamily: "'Times New Roman', Times, serif",}} />
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}
+                        label={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" },
+                        fontFamily: "Book Antiqua, Times, serif",}} />
 
                         {summary.qa_stack.keys.map((key, index) => (
                           <Bar key={index}
@@ -794,7 +822,7 @@ const Example = () => {
                   </Resizable>
                 </div>
 
-                <h6 class="text-center mt-3 text-success mb-5">Figure 9: Distribution of Answers per Question First Words on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 10: Distribution of Answers per Question First Words on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Distribution of Question Topic per Question First Words on The {data_type} set</h4>
@@ -808,11 +836,11 @@ const Example = () => {
                   >
                     <ResponsiveContainer width="97%" height="100%">
                       <BarChart data={summary.qt_stack.data} >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}/>
+                        <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}/>
                         <YAxis 
-                        tick={{ fontFamily: "'Times New Roman', Times, serif",  fontSize: FONTSIZE}}
-                        domain={[0, 100]} label={{fontFamily: "'Times New Roman', Times, serif", fontSize: FONTSIZE, value: 'Percentage of Topics',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle' }}} />
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}
+                        domain={[0, 100]} label={{fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE, value: 'Percentage of Topics',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" }}} />
 
                         {summary.qt_stack.keys.map((key, index) => (
                           <Bar key={index}
@@ -828,7 +856,7 @@ const Example = () => {
                   </Resizable>
                 </div>
 
-                <h6 class="text-center mt-3 text-success mb-5">Figure 10: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 11: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Questions on The {data_type} set</h4>
@@ -846,7 +874,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 11: Word Clouds of Questions on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 12: Word Clouds of Questions on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Answers on The {data_type} set</h4>
@@ -864,7 +892,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 12: Word Clouds of Question and Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 13: Word Clouds of Question and Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Question and Answers on The {data_type} set</h4>
@@ -882,7 +910,7 @@ const Example = () => {
                   </Resizable>
 
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 13: Word Clouds of Question and Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 14: Word Clouds of Question and Answers on The {data_type} set</h6>
               </div>
 
             </>

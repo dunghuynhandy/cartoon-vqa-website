@@ -15,7 +15,8 @@ const Layout = () => {
       <div class="col-1 px-5"></div>
         <div class="col-4 px-5"> <img src={logo}  alt="logo" style={{width:"100%", height:"100%"}} /></div>
         <div class="col-4 px-5"></div>
-        <div class="col-3 px-5 mt-4"> <img src={deakin_logo}  alt="logo" style={{width:"60%"}} /></div>
+        {/* <div class="col-3 px-5 mt-4"> <img src={deakin_logo}  alt="logo" style={{width:"60%"}} /></div>*/}
+        
       
       </div>
       <div class="row " >
@@ -31,7 +32,7 @@ const Layout = () => {
             <Navbar.Brand href="/download" >Download</Navbar.Brand>
             <Navbar.Brand href="/examples" >Examples</Navbar.Brand>
             <Navbar.Brand href="/visualize"  >Visualize</Navbar.Brand>
-            <Navbar.Brand href="/people" >People</Navbar.Brand>
+            {/*<Navbar.Brand href="/people" >People</Navbar.Brand>*/}
 
               
             </Nav>

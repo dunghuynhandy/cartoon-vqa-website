@@ -369,7 +369,7 @@ def visualize(value_filter, number_filter, subtype):
             "data": qt_result,
             "keys": QTkeys
         },
-        #"ques_len_list":data["len ques"].tolist(),
+        "ques_len_list":data["len ques"].tolist(),
         "answer_type": answer_type,
         "question_bag": question_bag,
         "answer_bag": answer_bag,
