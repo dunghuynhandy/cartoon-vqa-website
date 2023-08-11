@@ -219,7 +219,7 @@ def get_examples(value_filter, number_filter):
     
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
-    data = pd.read_csv("train.csv")
+    data = pd.read_csv("simpsonsvqa.csv")
     data = data[["img_path", "question", "topic", "answer", "incorrect",
                   "partially incorrect", "ambiguous", "partially correct", 
                   "correct", "correct & partially correct",
@@ -228,7 +228,7 @@ def get_examples(value_filter, number_filter):
     data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
     #data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
-    data = data.sample(n=12)
+    data = data.sample(n=12, replace=True)
     data = data.to_dict('records')
     for i in range(len(data)):
         image_data = open("./train_images/" + data[i]["img_path"], "rb").read()
