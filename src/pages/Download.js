@@ -188,8 +188,8 @@ const FileUploadForm = () => {
           <ul>
               <li class="text-success">For the question relevancy:
                   <ul>
-                      <li>1: relevant</li>
-                      <li>0: irrelevant</li>
+                      <li><span style={{color:"black"}}>1: relevant</span></li>
+                      <li><span style={{color:"black"}}>0: irrelevant</span></li>
                   </ul>
               </li>
               <li class="text-success">For the answer accuracy:
