@@ -237,7 +237,6 @@ def get_examples(value_filter, number_filter):
 
 @app.route('/visualize/<value_filter>/<number_filter>/<subtype>', methods=['GET', "POST"])
 def visualize(value_filter, number_filter, subtype):
-    """
     colors = ["#F06292", "#4FC3F7", "#AED581", "#FF8A65", "#BA68C8", "#4DB6AC", "#FFF176", "#CE93D8", "#7986CB", "#E57373"]
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
@@ -386,7 +385,7 @@ def visualize(value_filter, number_filter, subtype):
     file_path = f"visualize_{value_filter.lower()}_{number_filter.lower()}_{subtype.lower()}.json"
     with open(file_path, "r") as json_file:
         summary = json.load(json_file)
-    
+    """
     return summary
 
 if __name__ == '__main__':
