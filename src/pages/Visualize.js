@@ -184,7 +184,7 @@ const Example = () => {
         fontFamily="Book Antiqua, Times, serif"
         fontSize={20}
       >
-        {`${(percent).toFixed(4)*100}%`}
+        {`${(percent).toFixed(2)*100}%`}
       </text>
     );
   };
