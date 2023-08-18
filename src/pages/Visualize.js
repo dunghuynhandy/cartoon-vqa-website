@@ -90,7 +90,7 @@ const Example = () => {
     .reduce((sum, item) => sum + item.value, 0);
 
   // Create a new "other" category
-  const otherCategory = { value: droppedTopicCounts, fill: '#4DB6AC', name: 'other', percent: (droppedTopicCounts / topic_sum) * 100 };
+  const otherCategory = { value: droppedTopicCounts, fill: '#4DB6AC', name: 'Other', percent: (droppedTopicCounts / topic_sum) * 100 };
   const topicdata = [...filteredTopicData, otherCategory];
   const numberChange = async (value) => {
     setLoading(true)
