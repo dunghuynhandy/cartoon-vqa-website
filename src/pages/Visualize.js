@@ -239,7 +239,7 @@ const Example = () => {
     const textAnchor = 'middle';
     const labelX = x + width / 2;
     let labelY = 0
-    let fontsize = 14
+    let fontsize = 12
 
     if (key.length > 15) {
       fontsize = 10
@@ -813,11 +813,11 @@ const Example = () => {
                     <ResponsiveContainer width="97%" height="100%">
                       <BarChart data={summary.qa_stack.data} >
                         <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}/>
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 14, fill:"#000000"}}/>
                         <YAxis
                         width={60}
-                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}
-                        label={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: 20, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" },
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 14, fill:"#000000"}}
+                        label={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: 14, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" },
                         fontFamily: "Book Antiqua, Times, serif",}} />
 
                         {summary.qa_stack.keys.map((key, index) => (
