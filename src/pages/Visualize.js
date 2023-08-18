@@ -61,12 +61,12 @@ const Example = () => {
   //   height: 700,
   // };
 
-  // const resizeStyle = {
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   border: "solid 1px #9FA6B2",
-  // };
+  const resizeStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "solid 1px #9FA6B2",
+  };
   
 
   const RADIAN = Math.PI / 180;
