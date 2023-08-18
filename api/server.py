@@ -237,7 +237,7 @@ def get_examples(value_filter, number_filter):
 
 @app.route('/visualize/<value_filter>/<number_filter>/<subtype>', methods=['GET', "POST"])
 def visualize(value_filter, number_filter, subtype):
-    """
+
     colors = ["#F06292", "#4FC3F7", "#AED581", "#FF8A65", "#BA68C8", "#4DB6AC", "#FFF176", "#CE93D8", "#7986CB", "#E57373"]
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
@@ -370,7 +370,11 @@ def visualize(value_filter, number_filter, subtype):
         item = data[category].map(worker_mapping).value_counts().to_dict()
         item["name"] = category.title()
         category_workers.append(item)
-
+    
+    irrelevant_counts = int(len(data[data["relevant"]<2]))
+    relevant_counts = int(len(data[data["relevant"]>2]))
+    question_relevance = [{"name": "Relevant", "value": relevant_counts, 'fill': '#2ECC71'}, {"name": "Irrelevant", "value": irrelevant_counts, 'fill': '#E74C3C'}]
+    print(question_relevance)
     summary = {
         "categories":category_counts.to_dict("records"),
         "cumulative_category": cumulative_results,
@@ -387,6 +391,7 @@ def visualize(value_filter, number_filter, subtype):
             "data": qt_result,
             "keys": QTkeys
         },
+        "question_relevance": question_relevance,
         #"ques_len_list":data["len ques"].tolist(),
         "answer_type": answer_type,
         "question_bag": question_bag,
@@ -396,13 +401,17 @@ def visualize(value_filter, number_filter, subtype):
 
 
     }
+    
+
+
     with open(f"visualize_{value_filter}_{number_filter}_{subtype}.json", "w") as json_file:
         json.dump(summary, json_file)
+
     """
     file_path = f"visualize_{value_filter.lower()}_{number_filter.lower()}_{subtype.lower()}.json"
     with open(file_path, "r") as json_file:
         summary = json.load(json_file)
-
+    """
     return summary
 
 if __name__ == '__main__':

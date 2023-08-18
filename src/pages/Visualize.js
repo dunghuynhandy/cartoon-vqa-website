@@ -90,7 +90,7 @@ const Example = () => {
     .reduce((sum, item) => sum + item.value, 0);
 
   // Create a new "other" category
-  const otherCategory = { value: droppedTopicCounts, fill: '#4DB6AC', name: 'Other', percent: (droppedTopicCounts / topic_sum) * 100 };
+  const otherCategory = { value: droppedTopicCounts, fill: '#4DB6AC', name: 'other', percent: (droppedTopicCounts / topic_sum) * 100 };
   const topicdata = [...filteredTopicData, otherCategory];
   const numberChange = async (value) => {
     setLoading(true)
@@ -165,6 +165,26 @@ const Example = () => {
         fontSize={20}
       >
         {`${(percent).toFixed(0)}%`}
+      </text>
+    );
+  };
+  const renderPieCustomizedLabel2 = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+    const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.6;
+    const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
+    const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
+
+    return (
+
+      <text
+        x={labelX}
+        y={labelY}
+        fill="black"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontFamily="Book Antiqua, Times, serif"
+        fontSize={20}
+      >
+        {`${(percent).toFixed(4)*100}%`}
       </text>
     );
   };
@@ -259,7 +279,7 @@ const Example = () => {
     <div class="container min-vh-100 mt-2">
 
       <div class="row">
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-10">
           <h1 class="text-success my-5">Visualize</h1>
           <div class="row">
@@ -903,6 +923,40 @@ const Example = () => {
 
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 14: Word Clouds of Question and Answers on The {data_type} set</h6>
+              </div>
+              <div class="row my-4 border-top border-success">
+                <h4 class="text-success mb-5"> Question Relevance on The {data_type} set</h4>
+                <div class="row" style={{ "display": "flex", "justify-content": "center" }}>
+                  <Resizable
+                    defaultSize={{
+                      width: 400,
+                      height: 400
+                    }}
+                    style={resizeStyle}
+                  >
+                    <ResponsiveContainer width={"100%"} height={"100%"}>
+
+                      <PieChart>
+                        <Pie
+                          data={summary.question_relevance}
+                          dataKey="value"
+                          nameKey="name"
+                          outerRadius={"100%"}
+                          label={renderPieCustomizedLabel2}
+                          labelLine={false}
+                        >
+                        </Pie>
+
+                        <Legend formatter={(value, entry) => (
+                            <span style={{ fontFamily: "Book Antiqua, Times, serif" , fill: "#000000", fontSize: FONTSIZE}}>
+                              {value}
+                            </span>
+                          )}/>
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </Resizable>
+                </div>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 15: Question Relevance on The {data_type} set</h6>
               </div>
 
             </>
