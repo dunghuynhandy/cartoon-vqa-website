@@ -154,7 +154,7 @@ const Example = () => {
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.8;
+    const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.6;
     const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
     const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
 
