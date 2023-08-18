@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
-import { PieChart, Pie, Cell, Legend, LineChart, Tooltip, CartesianGrid, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Label, LabelList } from 'recharts';
+import { PieChart, Pie, Cell, Legend, LineChart, Tooltip, CartesianGrid, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, LabelList } from 'recharts';
 import ReactWordcloud from 'react-wordcloud';
 import { Resizable } from "re-resizable";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import ClipLoader from "react-spinners/ClipLoader";
-import Plot from 'react-plotly.js';
 
 const Example = () => {
   const [summary, setSummary] = useState({ categories: [], topics: [], len_ques: [] });
@@ -29,45 +28,45 @@ const Example = () => {
       setLoading(false)
     });
   }, []);
-  const data = [
-    {
-      type: 'box',
-      boxpoints: 'outliers',
-      y: summary.ques_len_list,
-      jitter: 0.3,
-      pointpos: -1.8,
-      marker: { color: '#14A44D',},
-      line: { color: '#14A44D' },
-      showlegend: false,
+  // const data = [
+  //   {
+  //     type: 'box',
+  //     boxpoints: 'outliers',
+  //     y: summary.ques_len_list,
+  //     jitter: 0.3,
+  //     pointpos: -1.8,
+  //     marker: { color: '#14A44D',},
+  //     line: { color: '#14A44D' },
+  //     showlegend: false,
       
-      name: '',
+  //     name: '',
       
-    },
-  ];
+  //   },
+  // ];
 
-  const layout = {
-    yaxis: { title: {
-      text: 'Question Lengths',
-      font: {
-        family: "Book Antiqua, Times, serif", // Specify the font family
-        size: 24, // Adjust the font size as needed
-      },
-      tickfont: {
-        family: "Book Antiqua, Times, serif", // Specify the font family
-        size: 22, // Adjust the font size as needed
-      },
-    }},
+  // const layout = {
+  //   yaxis: { title: {
+  //     text: 'Question Lengths',
+  //     font: {
+  //       family: "Book Antiqua, Times, serif", // Specify the font family
+  //       size: 24, // Adjust the font size as needed
+  //     },
+  //     tickfont: {
+  //       family: "Book Antiqua, Times, serif", // Specify the font family
+  //       size: 22, // Adjust the font size as needed
+  //     },
+  //   }},
 
-    width: 700,
-    height: 700,
-  };
+  //   width: 700,
+  //   height: 700,
+  // };
 
-  const resizeStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "solid 1px #9FA6B2",
-  };
+  // const resizeStyle = {
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   border: "solid 1px #9FA6B2",
+  // };
   
 
   const RADIAN = Math.PI / 180;
@@ -118,9 +117,9 @@ const Example = () => {
   };
 
   const dataTypeChange = async (value) => {
-    if (value == "All") {
+    if (value === "All") {
       setData_type("Train and Validation")
-    } else if (value == "train") {
+    } else if (value === "train") {
       setData_type("Train")
     } else { setData_type("Validation") }
     setSubType(value)
@@ -150,10 +149,6 @@ const Example = () => {
   };
 
   const renderPieCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.7;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
     const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.6;
     const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
     const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
@@ -178,10 +173,6 @@ const Example = () => {
 
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, name }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
     const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
     const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
