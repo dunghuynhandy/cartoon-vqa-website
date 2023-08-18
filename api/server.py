@@ -259,16 +259,18 @@ def visualize(value_filter, number_filter, subtype):
         "correct & partially correct": "#0E6251",
         "correct": "#28B463",
         "partially correct": "#82E0AA",
-        "ambiguous": "#512E5F",
+        "ambiguous": "#AF7AC5",
         "partially incorrect": "#F39C12",
         "incorrect": "#E74C3C",
         "incorrect & partially incorrect":"#B03A2E"
     }
 
     category_counts = data[categories].sum().reset_index()
+    
     category_counts.columns = ["name", "value"]
+    category_counts["name"] = category_counts["name"].apply(lambda x: x.title())
     category_counts["percent"] = round(category_counts["value"] /category_counts["value"].sum()*100)
-    category_counts["fill"] = category_counts["name"].map(colors_dict)
+    category_counts["fill"] = category_counts["name"].apply(lambda x: colors_dict[x.lower()])
 
     number_worker_keys = ["Total", "1 Worker", "2 Workers", "3 Workers"]
     cumulative_results = []
@@ -284,6 +286,7 @@ def visualize(value_filter, number_filter, subtype):
     topic_count = data["topic"].value_counts()
     topic_count = topic_count.reset_index()
     topic_count.columns = ["name", "value"]
+    topic_count["name"] = topic_count["name"].apply(lambda x: x.title())
     topic_count["percent"] = round(topic_count["value"]/topic_count["value"].sum()*100, 2)
     topic_count = topic_count.to_dict('records')
     for i in range(len(topic_count)):
@@ -295,6 +298,7 @@ def visualize(value_filter, number_filter, subtype):
     answer_list = data["answer"].value_counts()
     answer_list = answer_list.reset_index()
     answer_list.columns = ["name", "value"]
+    #answer_list["name"] = answer_list["name"].apply(lambda x: x.title())
     answer_list = answer_list[:30] 
     answer_list["percent"] = round(answer_list["value"]/answer_list["value"].sum()*100, 2)
     answer_list = answer_list.to_dict("records")
@@ -307,18 +311,26 @@ def visualize(value_filter, number_filter, subtype):
     first_word = first_word.reset_index()
     first_word.columns = ["name", "value"]
     first_word["percent"] = round(first_word["value"]/len(data)*100, 2)
+    try:
+        qa_result = stack_bar_chart(data, 'first_word', "answer")
+        QAkeys = list(qa_result[0].keys())
+        QAkeys.remove("name")
+    except:
+        qa_result = []
+        QAkeys = []
 
-    qa_result = stack_bar_chart(data, 'first_word', "answer")
-    QAkeys = list(qa_result[0].keys())
-    QAkeys.remove("name")
-
-    qt_result = stack_bar_chart(data, 'first_word', "topic")
-    QTkeys = list(qt_result[0].keys())
-    QTkeys.remove("name")
+    try:
+        qt_result = stack_bar_chart(data, 'first_word', "topic")
+        QTkeys = list(qt_result[0].keys())
+        QTkeys.remove("name")
+    except:
+        qt_result = []
+        QTkeys = [] 
 
     answer_type = data["answer_type"].value_counts()
     answer_type = answer_type.reset_index()
     answer_type.columns = ["name", "value"]
+    answer_type["name"] = answer_type["name"].apply(lambda x: x.title())
     answer_type["percent"] = round(answer_type["value"]/len(data)*100, 2)
     answer_type = answer_type.to_dict("records")
     for i in range(len(answer_type)):
@@ -338,10 +350,14 @@ def visualize(value_filter, number_filter, subtype):
 
     len_ques = len_ques.sort_values("name")
     len_ques = len_ques.to_dict("records")
-    question_bag = bag_of_word(list(data['question']))
-    answer_bag = bag_of_word(list(data['answer']))
-    question_answer_bag = bag_of_word(list(data['question']) + list(data['answer']))
-
+    try:
+        question_bag = bag_of_word(list(data['question']))
+        answer_bag = bag_of_word(list(data['answer']))
+        question_answer_bag = bag_of_word(list(data['question']) + list(data['answer']))
+    except:
+        question_bag = []
+        answer_bag = []
+        question_answer_bag = []
     worker_mapping = {
         0: "0 worker",
         1: "1 worker",
@@ -352,7 +368,7 @@ def visualize(value_filter, number_filter, subtype):
     category_workers = []
     for category in categories:
         item = data[category].map(worker_mapping).value_counts().to_dict()
-        item["name"] = category
+        item["name"] = category.title()
         category_workers.append(item)
 
     summary = {
@@ -371,7 +387,7 @@ def visualize(value_filter, number_filter, subtype):
             "data": qt_result,
             "keys": QTkeys
         },
-        "ques_len_list":data["len ques"].tolist(),
+        #"ques_len_list":data["len ques"].tolist(),
         "answer_type": answer_type,
         "question_bag": question_bag,
         "answer_bag": answer_bag,
@@ -386,7 +402,7 @@ def visualize(value_filter, number_filter, subtype):
     file_path = f"visualize_{value_filter.lower()}_{number_filter.lower()}_{subtype.lower()}.json"
     with open(file_path, "r") as json_file:
         summary = json.load(json_file)
-    
+
     return summary
 
 if __name__ == '__main__':

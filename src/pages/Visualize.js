@@ -150,11 +150,11 @@ const Example = () => {
   };
 
   const renderPieCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.7;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.60;
+    const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.8;
     const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
     const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
 
@@ -163,11 +163,11 @@ const Example = () => {
       <text
         x={labelX}
         y={labelY}
-        fill="white"
+        fill="black"
         textAnchor="middle"
         dominantBaseline="central"
         fontFamily="Book Antiqua, Times, serif"
-        fontSize={FONTSIZE}
+        fontSize={20}
       >
         {`${(percent).toFixed(0)}%`}
       </text>
@@ -706,6 +706,7 @@ const Example = () => {
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 6: Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
+              {/* 
               <div class="row my-4 border-bottom border-success text-center">
                 <div class="" >
                       <Plot data={data} layout={layout} />
@@ -801,11 +802,11 @@ const Example = () => {
                     <ResponsiveContainer width="97%" height="100%">
                       <BarChart data={summary.qa_stack.data} >
                         <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}/>
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}/>
                         <YAxis
                         width={60}
-                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}
-                        label={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" },
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}
+                        label={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: 20, value: 'Percentage of Answers',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" },
                         fontFamily: "Book Antiqua, Times, serif",}} />
 
                         {summary.qa_stack.keys.map((key, index) => (
@@ -837,10 +838,10 @@ const Example = () => {
                     <ResponsiveContainer width="97%" height="100%">
                       <BarChart data={summary.qt_stack.data} >
                         <CartesianGrid stroke="#000000"  strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}/>
+                        <XAxis dataKey="name" tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}/>
                         <YAxis 
-                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: FONTSIZE, fill:"#000000"}}
-                        domain={[0, 100]} label={{fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE, value: 'Percentage of Topics',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" }}} />
+                        tick={{ fontFamily: "Book Antiqua, Times, serif",  fontSize: 20, fill:"#000000"}}
+                        domain={[0, 100]} label={{fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: 20, value: 'Percentage of Topics',offset: -4, angle: -90, position: 'left',style: { textAnchor: 'middle', fill: "#000000" }}} />
 
                         {summary.qt_stack.keys.map((key, index) => (
                           <Bar key={index}
