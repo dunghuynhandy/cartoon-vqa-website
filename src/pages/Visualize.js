@@ -17,6 +17,7 @@ const Example = () => {
   const [data_type, setData_type] = useState("Train and Validation");
 
   const FONTSIZE = '24px'
+  console.log(summary)
 
   
 
@@ -83,7 +84,6 @@ const Example = () => {
   for (let i = 0; i < summary.topics.length; i++) {
     topic_sum += summary.topics[i].value
   }
-  console.log(summary.topics)
   const filteredTopicData = summary.topics.filter((item) => item.percent >= 5);
   const droppedTopicCounts = summary.topics
     .filter((item) => item.percent < 5)
@@ -152,6 +152,7 @@ const Example = () => {
     const labelRadius = innerRadius + (outerRadius - innerRadius) * 0.6;
     const labelX = cx + labelRadius * Math.cos(-midAngle * RADIAN);
     const labelY = cy + labelRadius * Math.sin(-midAngle * RADIAN);
+  
 
     return (
 
