@@ -299,14 +299,9 @@ const Example = () => {
               <div class="my-2">
                 <select class="form-control text-center" value={value_filter} onChange={(e) => valueChange(e.target.value)} >
                   <option value="All">All</option>
-                  <option style={{ "color": "#0E6251" }} value="Correct & Partially Correct">Correct & Partially Correct</option>
                   <option style={{ "color": "#28B463" }} value="Correct">Correct</option>
-                  <option style={{ "color": "#82E0AA" }} value="Partially Correct">Partially Correct</option>
-
                   <option style={{ "color": "#512E5F" }} value="Ambiguous">Ambiguous</option>
-                  <option style={{ "color": "#F39C12" }} value="Partially Incorrect">Partially Incorrect</option>
                   <option style={{ "color": "#E74C3C" }} value="Incorrect">Incorrect</option>
-                  <option style={{ "color": "#B03A2E" }} value="Incorrect & Partially Incorrect">Incorrect & Partially Incorrect</option>
                 </select>
               </div>
 
@@ -483,13 +478,9 @@ const Example = () => {
                               {value}
                             </span>
                           )}/>
-                          <Line type="monotone" dataKey="incorrect & partially incorrect" strokeWidth={4} stroke="#B03A2E" />
                           <Line type="monotone" dataKey="incorrect" strokeWidth={2} stroke="#E74C3C" />
-                          <Line type="monotone" dataKey="partially incorrect" strokeWidth={2} stroke="#F39C12" />
                           <Line type="monotone" dataKey="ambiguous" strokeWidth={2} stroke="#512E5F" />
-                          <Line type="monotone" dataKey="partially correct" strokeWidth={2} stroke="#82E0AA" />
                           <Line type="monotone" dataKey="correct" strokeWidth={2} stroke="#28B463" />
-                          <Line type="monotone" dataKey="correct & partially correct" strokeWidth={4} stroke="#0E6251" />
 
                         </LineChart>
                       </ResponsiveContainer>

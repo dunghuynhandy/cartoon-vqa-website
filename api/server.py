@@ -221,11 +221,12 @@ def get_examples(value_filter, number_filter):
     number_filter = int(number_filter)
     data = pd.read_csv("simpsonsvqa.csv")
     data = data[["img_path", "question", "topic", "answer", "incorrect",
-                  "partially incorrect", "ambiguous", "partially correct", 
-                  "correct", "correct & partially correct",
-                  "incorrect & partially incorrect",  "judgements","overal_score"]]
-    data["judgements"] = data["judgements"].apply(lambda x:  json.loads(x))
-    data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
+                    "ambiguous", 
+                  "correct", 
+                  "judgements","overall_scores"]]
+    data["judgements"] = data["judgements"].apply(lambda x:  eval(x))
+    data["overall_scores"] = data["overall_scores"].apply(lambda x:  eval(x))
+    data["all"] = data[["incorrect", "ambiguous", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
     #data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
     data = data.sample(n=12, replace=True)
@@ -237,6 +238,7 @@ def get_examples(value_filter, number_filter):
 
 @app.route('/visualize/<value_filter>/<number_filter>/<subtype>', methods=['GET', "POST"])
 def visualize(value_filter, number_filter, subtype):
+    """
     colors = ["#F06292", "#4FC3F7", "#AED581", "#FF8A65", "#BA68C8", "#4DB6AC", "#FFF176", "#CE93D8", "#7986CB", "#E57373"]
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
@@ -250,18 +252,14 @@ def visualize(value_filter, number_filter, subtype):
         data = pd.read_csv("train.csv")
     else:
         data = pd.read_csv("val.csv")
-    data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
+    data["all"] = data[["incorrect", "ambiguous", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
 
-    categories = ["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]
+    categories = ["incorrect", "ambiguous", "correct"]
     colors_dict = {
-        "correct & partially correct": "#0E6251",
         "correct": "#28B463",
-        "partially correct": "#82E0AA",
         "ambiguous": "#AF7AC5",
-        "partially incorrect": "#F39C12",
         "incorrect": "#E74C3C",
-        "incorrect & partially incorrect":"#B03A2E"
     }
 
     category_counts = data[categories].sum().reset_index()
@@ -402,15 +400,15 @@ def visualize(value_filter, number_filter, subtype):
     }
     
 
-    """
+    
     with open(f"visualize_{value_filter}_{number_filter}_{subtype}.json", "w") as json_file:
         json.dump(summary, json_file)
-
+    """
 
     file_path = f"visualize_{value_filter.lower()}_{number_filter.lower()}_{subtype.lower()}.json"
     with open(file_path, "r") as json_file:
         summary = json.load(json_file)
-    """
+    
     return summary
 
 if __name__ == '__main__':

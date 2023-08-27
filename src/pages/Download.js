@@ -148,10 +148,12 @@ const FileUploadForm = () => {
                     <p class="m-0 ">      <span class="text-success">"judgements":</span> {"{"}</p>
                     <p class="m-0 ">          <span class="text-success">"worker_1":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">1</span>{"}"},</p>
                     <p class="m-0 ">          <span class="text-success">"worker_2":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">1</span>{"}"},</p>
-                    <p class="m-0 ">          <span class="text-success">"worker_3":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">0.75</span>{"}"}</p>
+                    <p class="m-0 ">          <span class="text-success">"worker_3":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">0.5</span>{"}"}</p>
                     <p class="m-0 ">      {"}"},</p>
-                    <p class="m-0 ">      <span class="text-success">"overall_score":</span> <span class="text-danger">0.92</span> </p>
-
+                    <p class="m-0 ">      <span class="text-success">"overall_score":</span> {"{"} </p>
+                    <p class="m-0 ">          <span class="text-success">"question":</span> <span class="text-danger">1</span>, </p>
+                    <p class="m-0 ">          <span class="text-success">"answer":</span> <span class="text-danger">0.83</span>, </p>
+                    <p class="m-0 ">      {"}"},</p>
                     <p class="m-0 ">   {"}"},</p>
                     <i class="text-muted">   ...</i>
                     <p><strong>{"}"}</strong></p>
@@ -169,9 +171,9 @@ const FileUploadForm = () => {
                     <ul class="mx-3">
                       <li ><p class="card-text"><h6><span class="text-success">worker_1:</span> {"{"} question: 1, answer: 1{"}"}</h6> </p></li>
                       <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {"{"} question: 1, answer: 1{"}"}</h6> </p></li>
-                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {"{"} question: 1, answer: 0.75{"}"}</h6> </p></li>
+                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {"{"} question: 1, answer: 0.5{"}"}</h6> </p></li>
                     </ul>
-                    <p class="card-text"><h6><span class="text-success">overall_score:</span> 0.92</h6> </p>
+                    <p class="card-text"><h6><span class="text-success">overall_score:</span>{"{"} question: 1, answer: 0.83{"}"}</h6> </p>
                   </div>
                 </div>
                 <div class="text-center">
@@ -195,9 +197,7 @@ const FileUploadForm = () => {
               <li class="text-success">For the answer accuracy:
                   <ul>
                       <li><span style={{color:"black"}}>0: Incorrect</span></li>
-                      <li><span style={{color:"black"}}>0.25: Partially Incorrect</span></li>
                       <li><span style={{color:"black"}}>0.5: Ambiguous</span></li>
-                      <li><span style={{color:"black"}}>0.75: Partially Correct</span></li>
                       <li><span style={{color:"black"}}>1: Correct</span></li>
                   </ul>
               </li>
