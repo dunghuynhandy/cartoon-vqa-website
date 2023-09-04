@@ -150,7 +150,7 @@ const FileUploadForm = () => {
                     <p class="m-0 ">          <span class="text-success">"worker_2":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">1</span>{"}"},</p>
                     <p class="m-0 ">          <span class="text-success">"worker_3":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">0.5</span>{"}"}</p>
                     <p class="m-0 ">      {"}"},</p>
-                    <p class="m-0 ">      <span class="text-success">"overall_score":</span> {"{"} </p>
+                    <p class="m-0 ">      <span class="text-success">"overall_scores":</span> {"{"} </p>
                     <p class="m-0 ">          <span class="text-success">"question":</span> <span class="text-danger">1</span>, </p>
                     <p class="m-0 ">          <span class="text-success">"answer":</span> <span class="text-danger">0.83</span>, </p>
                     <p class="m-0 ">      {"}"},</p>
@@ -173,7 +173,7 @@ const FileUploadForm = () => {
                       <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {"{"} question: 1, answer: 1{"}"}</h6> </p></li>
                       <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {"{"} question: 1, answer: 0.5{"}"}</h6> </p></li>
                     </ul>
-                    <p class="card-text"><h6><span class="text-success">overall_score:</span>{"{"} question: 1, answer: 0.83{"}"}</h6> </p>
+                    <p class="card-text"><h6><span class="text-success">overall_scores:</span>{"{"} question: 1, answer: 0.83{"}"}</h6> </p>
                   </div>
                 </div>
                 <div class="text-center">
@@ -203,7 +203,7 @@ const FileUploadForm = () => {
               </li>
           </ul>
           </p>
-          <p class="mx-3 mb-1"><code class="text-success"><b>overall_score</b></code>: The average score of the judgements.</p>
+          <p class="mx-3 mb-1"><code class="text-success"><b>overall_scores</b></code>: The average score of the judgements.</p>
          
 
         </div>
