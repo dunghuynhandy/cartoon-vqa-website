@@ -1,4 +1,6 @@
 import example from '../example.png';
+import example_1 from '../example_1.png';
+import example_2 from '../example_2.png';
 const Home = () => {
   return (
     <div class="container mt-5">
@@ -42,8 +44,13 @@ const Home = () => {
             empowering them to expand their knowledge and enhance their ability to articulate and inquire about the world around them.
           </p>
 
-          <h4 class="mt-5 mb-4 text-success">Example:</h4>
+          <h4 class="mt-5 mb-4 text-success">Examples:</h4>
+          <h5 class="mt-5 mb-4 text-center">Conventional VQA Task</h5>
           <img src={example} alt="logo" style={{ width: "100%" }} />
+          <h5 class="mt-5 mb-4 text-center">Question Relevance VQA Task</h5>
+          <img src={example_1} alt="logo" style={{ width: "100%" }} />
+          <h5 class="mt-5 mb-4 text-center">Answer correctness VQA Task</h5>
+          <img src={example_2} alt="logo" style={{ width: "100%" }} />
 
         </div>
         <div class="col-4 col-4  mt-5">
@@ -53,15 +60,13 @@ const Home = () => {
             <p>The dataset consists of:</p>
 
             <ul>
-              <li>23,277 Simpsons cartoon images.</li>
+              <li>23,269 Simpsons cartoon images.</li>
               <li>At least 1 and at most 11 question-answer pair (4.5 pairs on average) per image.</li>
-              <li>104,679 question-answer pair.</li>
-              <li>Each question-answer pair has 3 ratings with 5 levels:
+              <li>103,738 question-answer pair.</li>
+              <li>Each question-answer pair has 3 ratings with 3 levels:
                 <ul>
                   <dd>- Incorrect</dd>
-                  <dd>- Partially Incorrect</dd>
                   <dd>- Ambiguous</dd>
-                  <dd>- Partially Correct</dd>
                   <dd>- Correct</dd>
                 </ul>
               </li>
