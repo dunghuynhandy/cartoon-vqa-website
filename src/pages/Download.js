@@ -126,9 +126,7 @@ const FileUploadForm = () => {
                     <p class="m-0 ">       <span class="text-success">"description":</span> <span class="text-danger">"This is v1.0 of the Cartoon VQA dataset."</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"url":</span> <span class="text-danger">"simpsonsvqa.org"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"version":</span> <span class="text-danger">"1.0"</span>,</p>
-                    <p class="m-0 ">       <span class="text-success">"organization":</span> <span class="text-danger">"Deakin University"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"year":</span> <span class="text-danger">"2023"</span>,</p>
-                    <p class="m-0 ">       <span class="text-success">"contributor":</span> <span class="text-danger">"Deakin VQA Team"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"date_created":</span> <span class="text-danger">"2023-08-01 00:00:00"</span></p>
                     <p class="m-0 ">   {"}"},</p>
                     <p class="m-0">   <span class="text-success">"task_type":</span> <span class="text-danger">"Open-Ended"</span>,</p>
