@@ -35,7 +35,7 @@ const FileUploadForm = () => {
 
           </li>
           <li class="my-4">
-            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Train_simpsons_vqa.zip" target="_blank" download>Validation Questions: 12,552 questions</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Val_simpsons_vqa.zip" target="_blank" download>Validation Questions: 12,552 questions</Link>
 
           </li>
           {/* 
@@ -51,7 +51,7 @@ const FileUploadForm = () => {
             <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/train_images.zip?authuser=1" target="_blank" download>Training Images: 13,961 images</Link>
           </li>
           <li class="my-4">
-            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/train_images.zip?authuser=1" target="_blank" download>Validation Images: 3,490 images</Link>
+            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/val_images.zip?authuser=1" target="_blank" download>Validation Images: 3,490 images</Link>
 
           </li>
           {/* 
