@@ -47,15 +47,9 @@ const Example = () => {
   console.log(examples)
   return (
     <div class="container min-vh-100 mt-2">
-      <div class="row" >
-        <div class="col-2"></div>
         <div class="col-2 my-5 text-success" ><h1 >Examples</h1></div>
-      </div>
-      <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-4"></div>
-        <div class="col-2">
+      <div class="row d-flex justify-content-end">
+        <div class="col-3">
           <div class="my-2">
             <select class="form-control text-center" value={value_filter} onChange={(e) => valueChange(e.target.value)} >
               <option value="All">All</option>
@@ -66,7 +60,7 @@ const Example = () => {
           </div>
 
         </div>
-        <div class="col-2">
+        <div class="col-1">
           <div class="my-2">
             <select class="form-control text-center" value={num_filter} onChange={(e) => numberChange(e.target.value)} >
               <option value="0">0</option>
@@ -76,16 +70,16 @@ const Example = () => {
             </select>
           </div>
         </div>
-        <div class="col-2 my-2">
+        <div class="col-1 my-2">
           <button type="button" class="btn btn-outline-dark" onClick={random}>Random</button>
         </div>
 
       </div>
-      <div class="row mx-1">
+      <div class="row">
         <div class="col-12">
-          <div className='image-grid'>
+          <div className='d-flex flex-wrap'>
             {examples.map(image => (
-              <div class="col-3">
+              <div class="col-4">
                 <div class="card m-2 border-dark d-flex align-items-stretch">
                   <img class="m-1" src={image.img_path} style={{ height: "200px", "border-radius": "6px" }} />
                   <p class="mx-2 my-0 text-danger" style={{ height: "60px", "font-size": "larger"}} ><span >Question:</span> {image.question}</p>
