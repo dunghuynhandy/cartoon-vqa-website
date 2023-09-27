@@ -6,16 +6,14 @@ import { Link } from 'react-router-dom';
 const FileUploadForm = () => {
 
   return (
-    <>
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
           <h1 class="text-success my-5">Download</h1>
-        </div>
+
       </div>
-      <div class="row "></div>
-      <div class="col-2"></div>
-      <div class="col-3 border-end border-1 border-success">
+
+      <div class="row">
+      <div class="col-4 border-end border-1 border-success">
         <h4 class="text-success text-center">Simpsons-VQA Annotations</h4>
         <ul class="mt-5">
           <li class="my-4">
@@ -26,7 +24,7 @@ const FileUploadForm = () => {
           </li>
         </ul>
       </div>
-      <div class="col-3 border-end border-1 border-success">
+      <div class="col-4 border-end border-1 border-success">
         <h4 class="text-success text-center">Simpsons-VQA Input Questions</h4>
         <ul class="mt-5">
           <li class="my-4">
@@ -44,7 +42,7 @@ const FileUploadForm = () => {
           </li>*/}
         </ul>
       </div>
-      <div class="col-3 ">
+      <div class="col-4 ">
         <h4 class="text-success text-center">Simpsons-VQA Input Images</h4>
         <ul class="mt-5">
           <li class="my-4">
@@ -62,17 +60,13 @@ const FileUploadForm = () => {
           */}
         </ul>
       </div>
-
-      <div class="col-1"></div>
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-          <h1 class="text-success my-5">Input Questions Format</h1>
-        </div>
       </div>
+
+
+      <h1 class="text-success my-5">Input Questions Format</h1>
+
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
+
           <div class="border border-1 border-success mx-3">
             <pre >
               <strong class="m-0">
@@ -103,20 +97,13 @@ const FileUploadForm = () => {
             </pre>
           </div>
           <p class="mt-4 mb-1 mx-3"><code class="text-success"><b>data_subtype</b></code>: Type of data subtype (train, val, test).</p>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-          <h1 class="text-success my-5">Input Annotations Format</h1>
-        </div>
-      </div>
+
+      <h1 class="text-success my-5">Input Annotations Format</h1>
       <div class="row mb-5 ">
-        <div class="col-2"></div>
-        <div class="col-10">
             <div class="row">
               <div class="col-8">
-                <div class="border mx-3 border-1 border-success">
+                <div class="border  border-1 border-success">
                 <pre >
                   <strong class="m-0">
                     <p class="m-0 ">{"{"}</p>
@@ -205,9 +192,6 @@ const FileUploadForm = () => {
         </div>
       </div>
 
-
-
-    </>
 
   );
 };

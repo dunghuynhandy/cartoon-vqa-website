@@ -5,17 +5,16 @@ const Home = () => {
   return (
     <div class="container mt-5">
       <div class="row">
-    <div class="col-2"></div>
+
     <div class="col-10">
     <h1 class="text-success">About The Project</h1>
     </div>
     </div>
       <div class="row align-items-start">
         
-        <div class="col-2"></div>
-        <div class="col-4  border-end border-3 border-success my-5">
+        <div class="col-6  border-end border-3 border-success my-5">
           <h4 class="text-success">What is VQA?</h4>
-          <p class="mt-4 mx-2" style={{ "text-align": "justify" }}>
+          <p class="mt-6 mx-2" style={{ "text-align": "justify" }}>
             Visual Question Answering (VQA) is a field of research that combines computer vision
             and natural language processing to enable machines to understand and answer questions
             about visual content. It involves analyzing an image and processing a corresponding
@@ -53,7 +52,7 @@ const Home = () => {
           <img src={example_2} alt="logo" style={{ width: "100%" }} />
 
         </div>
-        <div class="col-4 col-4  mt-5">
+        <div class="col-6 col-4  mt-5">
           <h4 class="text-success">Dataset Statistic</h4>
           <p class="mt-4 mx-2" style={{ "text-align": "justify" }}>
             <p>Details on downloading the Simpsons-VQA dataset may be found on the <a href="/download"> download</a> webpage.</p>
