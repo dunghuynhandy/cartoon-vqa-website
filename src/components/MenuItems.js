@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from "./Dropdown";
 
 const MenuItems = ({ items, depthLevel }) => {
-  const [dropdown, setDropdown] = useState(true);
+  const [dropdown, setDropdown] = useState(false);
 
   let ref = useRef();
 
