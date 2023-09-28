@@ -3,7 +3,7 @@ import MenuItems from "./MenuItems";
 const Navbar = () => {
   return (
     <nav class="d-flex justify-content-center">
-      <ul className="menus p-0 m-0">
+      <ul class="d-flex" style={{"list-style": "none"}} >
         {menuItems.map((menu, index) => {
           const depthLevel = 0;
           return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;

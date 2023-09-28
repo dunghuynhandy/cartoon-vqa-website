@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from "./Dropdown";
 
 const MenuItems = ({ items, depthLevel }) => {
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown, setDropdown] = useState(true);
 
   let ref = useRef();
 
@@ -32,6 +32,7 @@ const MenuItems = ({ items, depthLevel }) => {
 
   return (
     <li
+    
       className="menu-items"
       ref={ref}
       onMouseEnter={onMouseEnter}
@@ -40,7 +41,8 @@ const MenuItems = ({ items, depthLevel }) => {
       {items.submenu ? (
         <>
           <button
-            className="text-light"
+            class="text-light text-center"
+            style={{  "position": "block", "display": "inline-block"}}
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
@@ -56,7 +58,7 @@ const MenuItems = ({ items, depthLevel }) => {
           />
         </>
       ) : (
-        <Link className="text-light" to={items.url}>{items.title}</Link>
+        <Link class="text-light text-center"  to={items.url}>{items.title}</Link>
       )}
     </li>
   );

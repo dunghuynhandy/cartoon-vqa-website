@@ -11,8 +11,8 @@ export const menuItems = [
       title: 'Workshops',
       submenu: [
         {
-          title: 'Workshop 2023',
-          url: 'home',
+          title: 'Workshop 2024',
+          url: 'workshop2024',
         },
       ],
     },

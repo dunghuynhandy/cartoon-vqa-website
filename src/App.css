@@ -14,14 +14,14 @@
 }
 
 .App-header {
-  background-color: #186A3B;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color:  #186A3B;
+  font-size: 16px;
+  color: white;
 }
 
 .App-link {
@@ -47,22 +47,22 @@ body {
   font-family: sans-serif;
 }
 select {
-  background-color: #145A32
+  background-color: #34495E
 }
 
 header {
-  height: 58px;
+  height: 47px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #145A32;
+  color: #212529;
 }
 
 .nav-area {
-  display: flex;
+  position: block;
   align-items: center;
   max-width: 100%;
-  margin: 0 0;
+  margin: 0 auto;
   padding: 0 20px;
-  height: 58px;
+  height: 47px;
 }
 
 .logo {
@@ -77,11 +77,16 @@ header {
   list-style: none;
   
 }
-
+.backgound_theme {
+  background-color: #FDFEFE  ;
+  padding-top: 30px;
+  margin: 0;
+}
 .menu-items {
   position: relative;
-  font-size: 14px;
-
+  font-size: 16px;
+  width: 200px;
+  
 }
 
 .menu-items a {
@@ -93,7 +98,7 @@ header {
 
 .menu-items button {
   color: inherit;
-  font-size: inherit;
+  font-size: 16px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -108,7 +113,7 @@ header {
 
 .menu-items a:hover,
 .menu-items button:hover {
-  background-color: transparent;
+  background-color: #145A32 ;
 }
 
 .arrow::after {
@@ -125,15 +130,11 @@ header {
   position: absolute;
   right: 0;
   left: auto;
-  box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
-    0 4px 6px -2px rgba(71, 63, 79, 0.16);
-  font-size: 0.875rem;
+  font-size: 16px;
   z-index: 9999;
-  min-width: 10rem;
-  padding: 0.5rem 0;
+  padding: 0 0;
   list-style: none;
-  background-color: 	transparent;
-  border-radius: 0.5rem;
+  background-color: 	#186A3B ;
   display: none;
 }
 
@@ -145,4 +146,7 @@ header {
   position: absolute;
   left: 100%;
   top: -7px;
+}
+.italic-text {
+  font-style: italic;
 }

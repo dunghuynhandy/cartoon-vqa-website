@@ -8,7 +8,7 @@ const Layout = () => {
       <div >
         <Outlet />
       </div>
-      <div  style={{height:"100px"}}></div>
+      <div class="row"  style={{height:"100px", "background-color": "#1E8449"}}></div>
     </div>
 
   );

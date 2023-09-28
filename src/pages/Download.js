@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const FileUploadForm = () => {
 
   return (
-    <div class="container mt-5">
+    <div class="container mt-5" style={{"position": "relative"}}>
       <div class="row">
           <h1 class="text-success my-5">Download</h1>
 
