@@ -48,10 +48,10 @@ const FileUploadForm = () => {
         <h4 class="text-success text-center">Simpsons-VQA Input Images</h4>
         <ul class="mt-5">
           <li class="my-4">
-            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/train_images.zip?authuser=1" target="_blank" download>Training Images: 13,961 images</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/train_images.zip" target="_blank" download>Training Images: 13,961 images</Link>
           </li>
           <li class="my-4">
-            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/val_images.zip?authuser=1" target="_blank" download>Validation Images: 3,490 images</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/val_images.zip" target="_blank" download>Validation Images: 3,490 images</Link>
 
           </li>
           {/* 
