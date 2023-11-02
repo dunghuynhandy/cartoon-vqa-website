@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
 import { PieChart, Pie, Cell, Legend, LineChart, Tooltip, CartesianGrid, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, LabelList } from 'recharts';
-import ReactWordcloud from 'react-wordcloud';
+// import ReactWordcloud from 'react-wordcloud';
 import { Resizable } from "re-resizable";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
