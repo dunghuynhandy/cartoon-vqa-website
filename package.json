@@ -21,7 +21,6 @@
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
-    "react-wordcloud": "^1.2.7",
     "recharts": "^2.7.2",
     "web-vitals": "^2.1.4"
   },
@@ -49,5 +48,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8888"
+  "proxy": "http://localhost:8888",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
 }
