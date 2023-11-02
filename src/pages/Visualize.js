@@ -917,7 +917,7 @@ const Example = () => {
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Figure 15: Question Relevance on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Figure 12: Question Relevance on The {data_type} set</h6>
               </div>
 
             </>
