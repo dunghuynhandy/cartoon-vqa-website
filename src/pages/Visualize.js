@@ -871,6 +871,7 @@ const Example = () => {
 
                 <h6 class="text-center mt-3 text-success mb-5">Figure 11: Distribution of Question Topic per Question First Words on The {data_type} set</h6>
               </div>
+              {/*
               <div class="row my-4">
                 <h4 class="text-success mb-4"> Word Clouds of Questions on The {data_type} set</h4>
                 <div style={{ "display": "flex", "justify-content": "center" }}>
@@ -925,6 +926,7 @@ const Example = () => {
                 </div>
                 <h6 class="text-center mt-3 text-success mb-5">Figure 14: Word Clouds of Question and Answers on The {data_type} set</h6>
               </div>
+              */}
               <div class="row my-4 border-top border-success">
                 <h4 class="text-success mb-5"> Question Relevance on The {data_type} set</h4>
                 <div class="row" style={{ "display": "flex", "justify-content": "center" }}>
