@@ -6,36 +6,34 @@ import { Link } from 'react-router-dom';
 const FileUploadForm = () => {
 
   return (
-    <>
+    <div class="container mt-5" style={{"position": "relative"}}>
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
           <h1 class="text-success my-5">Download</h1>
-        </div>
+
       </div>
-      <div class="row "></div>
-      <div class="col-2"></div>
-      <div class="col-3 border-end border-1 border-success">
+
+      <div class="row">
+      <div class="col-4 border-end border-1 border-success">
         <h4 class="text-success text-center">Simpsons-VQA Annotations</h4>
         <ul class="mt-5">
           <li class="my-4">
-            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Annotation_Train_simpsons_vqa.zip" target="_blank" download>Training Annotations: 78,622 answers</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Annotation_Train_simpsons_vqa.zip" target="_blank" download>Training Annotations: 77,991 answers</Link>
           </li>
           <li>
-            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Annotation_Val_simpsons_vqa.zip" download>Validation Annotations: 12,721 answers</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Annotation_Val_simpsons_vqa.zip" download>Validation Annotations: 12,552 answers</Link>
           </li>
         </ul>
       </div>
-      <div class="col-3 border-end border-1 border-success">
+      <div class="col-4 border-end border-1 border-success">
         <h4 class="text-success text-center">Simpsons-VQA Input Questions</h4>
         <ul class="mt-5">
           <li class="my-4">
-            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Train_simpsons_vqa.zip" target="_blank" download>Training Questions: 78,622 questions</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Train_simpsons_vqa.zip" target="_blank" download>Training Questions: 77,991 questions</Link>
 
 
           </li>
           <li class="my-4">
-            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Train_simpsons_vqa.zip" target="_blank" download>Validation Questions: 12,721 questions</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/v1_Question_Val_simpsons_vqa.zip" target="_blank" download>Validation Questions: 12,552 questions</Link>
 
           </li>
           {/* 
@@ -44,14 +42,14 @@ const FileUploadForm = () => {
           </li>*/}
         </ul>
       </div>
-      <div class="col-3 ">
+      <div class="col-4 ">
         <h4 class="text-success text-center">Simpsons-VQA Input Images</h4>
         <ul class="mt-5">
           <li class="my-4">
-            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/train_images.zip?authuser=1" target="_blank" download>Training Images: 13966 images</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/train_images.zip" target="_blank" download>Training Images: 13,961 images</Link>
           </li>
           <li class="my-4">
-            <Link class="text-success" to="https://storage.cloud.google.com/simpsonsvqa/train_images.zip?authuser=1" target="_blank" download>Validation Images: 3491 images</Link>
+            <Link class="text-success" to="https://storage.googleapis.com/simpsonsvqa/val_images.zip" target="_blank" download>Validation Images: 3,490 images</Link>
 
           </li>
           {/* 
@@ -62,17 +60,13 @@ const FileUploadForm = () => {
           */}
         </ul>
       </div>
-
-      <div class="col-1"></div>
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-          <h1 class="text-success my-5">Input Questions Format</h1>
-        </div>
       </div>
+
+
+      <h1 class="text-success my-5">Input Questions Format</h1>
+
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
+
           <div class="border border-1 border-success mx-3">
             <pre >
               <strong class="m-0">
@@ -81,9 +75,7 @@ const FileUploadForm = () => {
                 <p class="m-0 ">       <span class="text-success">"description":</span> <span class="text-danger">"This is v1.0 of the Cartoon VQA dataset."</span>,</p>
                 <p class="m-0 ">       <span class="text-success">"url":</span> <span class="text-danger">"simpsonsvqa.org"</span>,</p>
                 <p class="m-0 ">       <span class="text-success">"version":</span> <span class="text-danger">"1.0"</span>,</p>
-                <p class="m-0 ">       <span class="text-success">"organization":</span> <span class="text-danger">"Deakin University"</span>,</p>
                 <p class="m-0 ">       <span class="text-success">"year":</span> <span class="text-danger">"2023"</span>,</p>
-                <p class="m-0 ">       <span class="text-success">"contributor":</span> <span class="text-danger">"Deakin VQA Team"</span>,</p>
                 <p class="m-0 ">       <span class="text-success">"date_created":</span> <span class="text-danger">"2023-08-01 00:00:00"</span></p>
                 <p class="m-0 ">   {"}"},</p>
                 <p class="m-0">   <span class="text-success">"task_type":</span> <span class="text-danger">"Open-Ended"</span>,</p>
@@ -105,20 +97,13 @@ const FileUploadForm = () => {
             </pre>
           </div>
           <p class="mt-4 mb-1 mx-3"><code class="text-success"><b>data_subtype</b></code>: Type of data subtype (train, val, test).</p>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-          <h1 class="text-success my-5">Input Annotations Format</h1>
-        </div>
-      </div>
+
+      <h1 class="text-success my-5">Input Annotations Format</h1>
       <div class="row mb-5 ">
-        <div class="col-2"></div>
-        <div class="col-10">
             <div class="row">
               <div class="col-8">
-                <div class="border mx-3 border-1 border-success">
+                <div class="border  border-1 border-success">
                 <pre >
                   <strong class="m-0">
                     <p class="m-0 ">{"{"}</p>
@@ -126,9 +111,7 @@ const FileUploadForm = () => {
                     <p class="m-0 ">       <span class="text-success">"description":</span> <span class="text-danger">"This is v1.0 of the Cartoon VQA dataset."</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"url":</span> <span class="text-danger">"simpsonsvqa.org"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"version":</span> <span class="text-danger">"1.0"</span>,</p>
-                    <p class="m-0 ">       <span class="text-success">"organization":</span> <span class="text-danger">"Deakin University"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"year":</span> <span class="text-danger">"2023"</span>,</p>
-                    <p class="m-0 ">       <span class="text-success">"contributor":</span> <span class="text-danger">"Deakin VQA Team"</span>,</p>
                     <p class="m-0 ">       <span class="text-success">"date_created":</span> <span class="text-danger">"2023-08-01 00:00:00"</span></p>
                     <p class="m-0 ">   {"}"},</p>
                     <p class="m-0">   <span class="text-success">"task_type":</span> <span class="text-danger">"Open-Ended"</span>,</p>
@@ -148,10 +131,12 @@ const FileUploadForm = () => {
                     <p class="m-0 ">      <span class="text-success">"judgements":</span> {"{"}</p>
                     <p class="m-0 ">          <span class="text-success">"worker_1":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">1</span>{"}"},</p>
                     <p class="m-0 ">          <span class="text-success">"worker_2":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">1</span>{"}"},</p>
-                    <p class="m-0 ">          <span class="text-success">"worker_3":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">0.75</span>{"}"}</p>
+                    <p class="m-0 ">          <span class="text-success">"worker_3":</span> <span class="text-danger"></span>{"{"}<span class="text-success">"question": </span><span class="text-danger">1</span>, <span class="text-success">"answer": </span><span class="text-danger">0.5</span>{"}"}</p>
                     <p class="m-0 ">      {"}"},</p>
-                    <p class="m-0 ">      <span class="text-success">"overall_score":</span> <span class="text-danger">0.92</span> </p>
-
+                    <p class="m-0 ">      <span class="text-success">"overall_scores":</span> {"{"} </p>
+                    <p class="m-0 ">          <span class="text-success">"question":</span> <span class="text-danger">1</span>, </p>
+                    <p class="m-0 ">          <span class="text-success">"answer":</span> <span class="text-danger">0.83</span>, </p>
+                    <p class="m-0 ">      {"}"},</p>
                     <p class="m-0 ">   {"}"},</p>
                     <i class="text-muted">   ...</i>
                     <p><strong>{"}"}</strong></p>
@@ -169,9 +154,9 @@ const FileUploadForm = () => {
                     <ul class="mx-3">
                       <li ><p class="card-text"><h6><span class="text-success">worker_1:</span> {"{"} question: 1, answer: 1{"}"}</h6> </p></li>
                       <li><p class="card-text"><h6><span class="text-success">worker_2:</span> {"{"} question: 1, answer: 1{"}"}</h6> </p></li>
-                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {"{"} question: 1, answer: 0.75{"}"}</h6> </p></li>
+                      <li><p class="card-text"><h6><span class="text-success">worker_3:</span> {"{"} question: 1, answer: 0.5{"}"}</h6> </p></li>
                     </ul>
-                    <p class="card-text"><h6><span class="text-success">overall_score:</span> 0.92</h6> </p>
+                    <p class="card-text"><h6><span class="text-success">overall_scores:</span>{"{"} question: 1, answer: 0.83{"}"}</h6> </p>
                   </div>
                 </div>
                 <div class="text-center">
@@ -195,23 +180,18 @@ const FileUploadForm = () => {
               <li class="text-success">For the answer accuracy:
                   <ul>
                       <li><span style={{color:"black"}}>0: Incorrect</span></li>
-                      <li><span style={{color:"black"}}>0.25: Partially Incorrect</span></li>
                       <li><span style={{color:"black"}}>0.5: Ambiguous</span></li>
-                      <li><span style={{color:"black"}}>0.75: Partially Correct</span></li>
                       <li><span style={{color:"black"}}>1: Correct</span></li>
                   </ul>
               </li>
           </ul>
           </p>
-          <p class="mx-3 mb-1"><code class="text-success"><b>overall_score</b></code>: The average score of the judgements.</p>
+          <p class="mx-3 mb-1"><code class="text-success"><b>overall_scores</b></code>: The average score of the judgements.</p>
          
 
         </div>
       </div>
 
-
-
-    </>
 
   );
 };

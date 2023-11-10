@@ -25,7 +25,7 @@ def process_node(node):
 
         for child in node['children']:
             processed_child = process_node(child)
-            if processed_child['value'] < 400:
+            if processed_child['value'] < 700:
                 other_value += processed_child['value']
             else:
                 processed_children.append(processed_child)
@@ -216,16 +216,13 @@ def download_data(dataname):
 
 @app.route('/get_examples/<value_filter>/<number_filter>', methods=['GET', "POST"])
 def get_examples(value_filter, number_filter):
-    
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
-    data = pd.read_csv("simpsonsvqa.csv")
-    data = data[["img_path", "question", "topic", "answer", "incorrect",
-                  "partially incorrect", "ambiguous", "partially correct", 
-                  "correct", "correct & partially correct",
-                  "incorrect & partially incorrect",  "judgements","overal_score"]]
-    data["judgements"] = data["judgements"].apply(lambda x:  json.loads(x))
-    data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
+    data = pd.read_csv("example.csv")
+
+    data["judgements"] = data["judgements"].apply(lambda x:  eval(x))
+    data["overall_scores"] = data["overall_scores"].apply(lambda x:  eval(x))
+    data["all"] = data[["incorrect", "ambiguous", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
     #data["img_path"] = data["img_path"].apply(lambda x: 'https://storage.googleapis.com/cartoon_img/' + x)
     data = data.sample(n=12, replace=True)
@@ -237,6 +234,7 @@ def get_examples(value_filter, number_filter):
 
 @app.route('/visualize/<value_filter>/<number_filter>/<subtype>', methods=['GET', "POST"])
 def visualize(value_filter, number_filter, subtype):
+    """
     colors = ["#F06292", "#4FC3F7", "#AED581", "#FF8A65", "#BA68C8", "#4DB6AC", "#FFF176", "#CE93D8", "#7986CB", "#E57373"]
     value_filter = value_filter.lower()
     number_filter = int(number_filter)
@@ -250,25 +248,21 @@ def visualize(value_filter, number_filter, subtype):
         data = pd.read_csv("train.csv")
     else:
         data = pd.read_csv("val.csv")
-    data["all"] = data[["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]].max(axis=1)
+    data["all"] = data[["incorrect", "ambiguous", "correct"]].max(axis=1)
     data = data[data[value_filter] >= number_filter]
 
-    categories = ["incorrect", "partially incorrect", "ambiguous", "partially correct", "correct"]
+    categories = ["incorrect", "ambiguous", "correct"]
     colors_dict = {
-        "correct & partially correct": "#0E6251",
         "correct": "#28B463",
-        "partially correct": "#82E0AA",
         "ambiguous": "#AF7AC5",
-        "partially incorrect": "#F39C12",
         "incorrect": "#E74C3C",
-        "incorrect & partially incorrect":"#B03A2E"
     }
 
     category_counts = data[categories].sum().reset_index()
     
     category_counts.columns = ["name", "value"]
     category_counts["name"] = category_counts["name"].apply(lambda x: x.title())
-    category_counts["percent"] = round(category_counts["value"] /category_counts["value"].sum()*100)
+    category_counts["percent"] = round(category_counts["value"] /category_counts["value"].sum(),2)*100
     category_counts["fill"] = category_counts["name"].apply(lambda x: colors_dict[x.lower()])
 
     number_worker_keys = ["Total", "1 Worker", "2 Workers", "3 Workers"]
@@ -302,10 +296,13 @@ def visualize(value_filter, number_filter, subtype):
     answer_list["percent"] = round(answer_list["value"]/answer_list["value"].sum()*100, 2)
     answer_list = answer_list.to_dict("records")
 
-    nest_data = data.groupby(['first_word', 'secondword', 'thirdword', 'fourword'])['fifword'].value_counts()
+    nest_data = data.groupby(['first_word', 'second_word', 'third_word', 'four_word'])['fif_word'].value_counts()
     result = nest_pie_data(nest_data)
     result = add_color(result)
 
+
+    valid_first_words = data["first_word"].value_counts()[:10].index
+    data["first_word"] = data["first_word"].apply(lambda x: x if x in valid_first_words else "other" )
     first_word = data["first_word"].value_counts()
     first_word = first_word.reset_index()
     first_word.columns = ["name", "value"]
@@ -338,7 +335,7 @@ def visualize(value_filter, number_filter, subtype):
         except:
             answer_type[i]["fill"] = "black"
 
-    len_ques = data["len ques"].value_counts()
+    len_ques = data["len_ques"].value_counts()
     len_ques = len_ques.reset_index()
     len_ques.columns = ["name", "value"]
     for i in range(len(len_ques.max())):
@@ -373,7 +370,6 @@ def visualize(value_filter, number_filter, subtype):
     irrelevant_counts = int(len(data[data["relevant"]<2]))
     relevant_counts = int(len(data[data["relevant"]>2]))
     question_relevance = [{"name": "Relevant", "value": relevant_counts, 'fill': '#2ECC71'}, {"name": "Irrelevant", "value": irrelevant_counts, 'fill': '#E74C3C'}]
-    print(question_relevance)
     summary = {
         "categories":category_counts.to_dict("records"),
         "cumulative_category": cumulative_results,
@@ -402,15 +398,16 @@ def visualize(value_filter, number_filter, subtype):
     }
     
 
-    """
+    
     with open(f"visualize_{value_filter}_{number_filter}_{subtype}.json", "w") as json_file:
         json.dump(summary, json_file)
-
-
+    
+    """
     file_path = f"visualize_{value_filter.lower()}_{number_filter.lower()}_{subtype.lower()}.json"
     with open(file_path, "r") as json_file:
         summary = json.load(json_file)
-    """
+    
+    
     return summary
 
 if __name__ == '__main__':
