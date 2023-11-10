@@ -393,7 +393,7 @@ const Example = () => {
                           label={{
                             fontFamily: "Book Antiqua, Times, serif",
                             fontSize: FONTSIZE,
-                            value: 'Percentage of Assignments', offset: -4, angle: -90, position: 'left',
+                            value: 'Number of Triples', offset: -4, angle: -90, position: 'left',
                             style: { textAnchor: 'middle', fill: "#000000" }
                           }} />
                         <Tooltip />
