@@ -60,8 +60,8 @@ const Home = () => {
 
             <ul>
               <li>23,269 Simpsons cartoon images.</li>
-              <li>At least 1 and at most 11 question-answer pair (4.5 pairs on average) per image.</li>
-              <li>103,738 question-answer pair.</li>
+              <li>At least 1 and at most 11 question-answer pair (7.2 pairs on average) per image.</li>
+              <li>166,533 question-answer pairs.</li>
               <li>Each question-answer pair has 3 ratings with 3 levels:
                 <ul>
                   <dd>- Incorrect</dd>
