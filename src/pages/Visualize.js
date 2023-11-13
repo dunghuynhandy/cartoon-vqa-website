@@ -465,7 +465,7 @@ const Example = () => {
                   <div class="col-8"><h4 class="text-success">Percentage of First Words of Questions and Distribution of Questions by Their First Five Words on The {data_type} set</h4></div>
                 </div>
                 <div class="row">
-                  {/* <div class="col-6">
+                  <div class="col-6">
                     <table class="table">
                       <thead>
                         <tr>
@@ -489,8 +489,8 @@ const Example = () => {
                       </tbody>
                     </table>
 
-                    <h6 class="text-center mt-3 text-success mb-5">Table 2: Percentage of First Words of Questions on The {data_type} set</h6>
-                  </div> */}
+                    <h6 class="text-center mt-3 text-success mb-5">Percentage of First Words of Questions on The {data_type} set</h6>
+                  </div>
                   <div>
                     <div style={{ "display": "flex", "justify-content": "center" }}>
                       <Resizable
