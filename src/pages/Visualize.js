@@ -489,7 +489,7 @@ const Example = () => {
                       </tbody>
                     </table>
 
-                    <h6 class="text-center mt-3 text-success mb-5">Percentage of First Words of Questions on The {data_type} set</h6>
+                    <h6 class="text-center mt-3 text-success mb-5">Table 2: Percentage of First Words of Questions on The {data_type} set</h6>
                   </div>
                   <div>
                     <div style={{ "display": "flex", "justify-content": "center" }}>
@@ -674,20 +674,20 @@ const Example = () => {
                 <h6 class="text-center mt-3 text-success mb-5">Percentage of questions with different word lengths on The {data_type} set</h6>
               </div>
               {/* 
-<div class="row my-4 border-bottom border-success text-center">
-<div class="" >
-<Plot data={data} layout={layout} />
-</div>
-<h6 class="text-center mt-3 text-success mb-5">Box Plot of Question Lengths on The {data_type} set</h6>
-</div>
-{/*
-<div>
-<h1>My React Boxplot App</h1>
+                <div class="row my-4 border-bottom border-success text-center">
+                <div class="" >
+                <Plot data={data} layout={layout} />
+                </div>
+                <h6 class="text-center mt-3 text-success mb-5">Box Plot of Question Lengths on The {data_type} set</h6>
+                </div>
+                {/*
+                <div>
+                <h1>My React Boxplot App</h1>
 
-</div>
-*/}
+                </div>
+                */}
               <div class="row my-4 border-bottom border-success">
-                <h4 class="text-success mb-5">Percentage of 50 Most frequent Answers on The {data_type} set</h4>
+                <h4 class="text-success mb-5">Percentage of 30 Most frequent Answers on The {data_type} set</h4>
                 <div style={{ "display": "flex", "justify-content": "center" }}>
                   <Resizable
                     defaultSize={{
@@ -708,7 +708,7 @@ const Example = () => {
                           }}
                           dataKey="name" />
                         <YAxis
-                          domain={[0, 24]}
+                          // domain={[0, 24]}
                           width={60}
                           tick={{ fontFamily: "Book Antiqua, Times, serif", fill: "#000000", fontSize: FONTSIZE }}
                           label={{
@@ -722,7 +722,7 @@ const Example = () => {
                     </ResponsiveContainer>
                   </Resizable>
                 </div>
-                <h6 class="text-center mt-3 text-success mb-5">Percentage of 50 Most frequent Answers on The {data_type} set</h6>
+                <h6 class="text-center mt-3 text-success mb-5">Percentage of 30 Most frequent Answers on The {data_type} set</h6>
               </div>
               <div class="row my-4 border-bottom border-success">
                 <h4 class="text-success mb-5">Percentage of Answer Types on The {data_type} set</h4>
